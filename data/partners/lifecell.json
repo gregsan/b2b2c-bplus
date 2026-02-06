@@ -1,0 +1,76 @@
+{
+  "id": "lifecell",
+  "type": "operator",
+  "name": "Lifecell",
+  "subscriptionName": "Premium Київстар",
+  "subscriptionPrice": "₴199/місяць",
+  "colorScheme": "blue",
+  "benefits": [
+    {
+      "title": "Безлімітний інтернет",
+      "description": "Необмежений мобільний інтернет на максимальній швидкості без зниження після використання пакету.",
+      "icon": "Wifi"
+    },
+    {
+      "title": "Безлімітні дзвінки",
+      "description": "Необмежені дзвінки на всі номери України, безкоштовні SMS всередині мережі Київстар.",
+      "icon": "Phone"
+    },
+    {
+      "title": "Міжнародний роумінг",
+      "description": "Знижки до 50% на роумінг в ЄС та США, безкоштовні вхідні дзвінки в роумінгу.",
+      "icon": "Globe"
+    }
+  ],
+  "services": [
+    {
+      "id": "spotify",
+      "name": "Spotify Premium",
+      "shortDescription": "Музика без реклами",
+      "fullDescription": "Повний доступ до музичної бібліотеки з понад 100 мільйонами треків, прослуховування офлайн, без реклами та обмежень. Необмежене пропускання треків та найвища якість звуку.",
+      "logo": "/logos/spotify.svg"
+    },
+    {
+      "id": "netflix",
+      "name": "Netflix Premium",
+      "shortDescription": "Серіали та фільми",
+      "fullDescription": "Необмежений доступ до каталогу Netflix в якості 4K Ultra HD, до 4 одночасних підключень, завантаження контенту для перегляду офлайн.",
+      "logo": "/logos/netflix.svg"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube Premium",
+      "shortDescription": "Відео без реклами",
+      "fullDescription": "Перегляд відео без реклами, фонове відтворення, завантаження відео для офлайн-перегляду, доступ до YouTube Music Premium.",
+      "logo": "/logos/youtube.svg"
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT Plus",
+      "shortDescription": "AI асистент",
+      "fullDescription": "Доступ до GPT-4, пріоритетний доступ навіть у години пік, швидша відповідь, ранній доступ до нових функцій.",
+      "logo": "/logos/chatgpt.svg"
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "shortDescription": "Робочий простір",
+      "fullDescription": "Необмежена кількість блоків, необмежене завантаження файлів, версійна історія до 30 днів, гостьовий доступ.",
+      "logo": "/logos/notion.svg"
+    },
+    {
+      "id": "apple-music",
+      "name": "Apple Music",
+      "shortDescription": "Музичний сервіс",
+      "fullDescription": "Доступ до 100 мільйонів пісень без реклами, прослуховування офлайн, просторовий звук Dolby Atmos, ексклюзивні релізи.",
+      "logo": "/logos/apple-music.svg"
+    },
+    {
+      "id": "disney",
+      "name": "Disney+",
+      "shortDescription": "Розваги для сім'ї",
+      "fullDescription": "Необмежений доступ до контенту Disney, Pixar, Marvel, Star Wars, National Geographic. До 4 одночасних трансляцій, завантаження для офлайн-перегляду.",
+      "logo": "/logos/disney.svg"
+    }
+  ]
+}
