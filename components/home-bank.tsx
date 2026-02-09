@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
 const transactions = [
-  { id: 1, name: 'Силпо', amount: -456.50, category: 'Продукти', time: '14:32' },
+  { id: 1, name: 'Сільпо', amount: -456.50, category: 'Продукти', time: '14:32' },
   { id: 2, name: 'Поповнення', amount: 5000.00, category: 'Переказ', time: '10:15' },
   { id: 3, name: 'Netflix', amount: -299.00, category: 'Підписки', time: 'Вчора' },
   { id: 4, name: 'АТБ', amount: -234.80, category: 'Продукти', time: 'Вчора' },
@@ -53,7 +53,7 @@ export function HomeBankTemplate() {
               style={{ 
                 backgroundColor: 'var(--color-card-bg, #F7F7F9)',
                 borderColor: 'var(--color-border, #797875)',
-                borderOpacity: 0.2
+                border: '1px solid rgba(229, 229, 229, 0.2)'
               }}
             >
               <div className="flex items-start justify-between">
@@ -64,7 +64,7 @@ export function HomeBankTemplate() {
                       backgroundColor: 'var(--color-accent, #FACE00)',
                       color: 'var(--color-dark, #0E0C00)',
                       borderColor: 'var(--color-dark, #0E0C00)',
-                      borderOpacity: 0.2
+                      border: '1px solid rgba(229, 229, 229, 0.2)'
                     }}
                   >
                     <Crown className="w-3 h-3" />
@@ -106,7 +106,7 @@ export function HomeBankTemplate() {
                     style={{ 
                       backgroundColor: 'var(--color-card-bg, #F7F7F9)',
                       borderColor: 'var(--color-border, #797875)',
-                      borderOpacity: 0.2
+                      border: '1px solid rgba(229, 229, 229, 0.2)'
                     }}
                   >
                     <div className="flex items-center justify-between">

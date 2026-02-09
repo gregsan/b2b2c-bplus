@@ -6,7 +6,8 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { BottomNav } from '@/components/bottom-nav'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
 
 // Import existing tab components
 import { Card } from '@/components/ui/card'
@@ -25,21 +26,24 @@ export default function PremiumActivatedPage() {
 
   const partnerId = params?.partnerId as string
 
-  const handleSwipe = (offset: number) => {
-    const currentIndex = tabs.indexOf(selectedTab)
-    if (offset > 50 && currentIndex > 0) {
-      setSelectedTab(tabs[currentIndex - 1])
-    } else if (offset < -50 && currentIndex < tabs.length - 1) {
-      setSelectedTab(tabs[currentIndex + 1])
+    useEffect(() => {
+      if (!isPremium && partnerId) {
+        router.push(`/${partnerId}/premium`)
+      }
+    }, [isPremium, partnerId, router])
+
+    const handleSwipe = (offset: number) => {
+      const currentIndex = tabs.indexOf(selectedTab)
+      if (offset > 50 && currentIndex > 0) {
+        setSelectedTab(tabs[currentIndex - 1])
+      } else if (offset < -50 && currentIndex < tabs.length - 1) {
+        setSelectedTab(tabs[currentIndex + 1])
+      }
     }
-  }
 
-  if (!partner) return null
+    if (!partner) return null
+    if (!isPremium) return null
 
-  if (!isPremium) {
-    router.push(`/${partnerId}/premium`)
-    return null
-  }
 
   return (
     <div className="h-full flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--color-page-bg, #FAFAFA)' }}>
@@ -65,7 +69,7 @@ export default function PremiumActivatedPage() {
               backgroundColor: 'rgba(0,0,0,0.1)',
               color: 'var(--color-dark, #0E0C00)',
               borderColor: 'var(--color-dark, #0E0C00)',
-              borderOpacity: 0.2
+              border: '1px solid rgba(229, 229, 229, 0.2)'
             }}
           >
             Активний
@@ -80,7 +84,7 @@ export default function PremiumActivatedPage() {
           style={{ 
             backgroundColor: 'var(--color-page-bg, #FAFAFA)',
             borderColor: 'var(--color-border, #797875)',
-            borderOpacity: 0.3
+            border: '1px solid rgba(229, 229, 229, 0.3)'
           }}
         >
           <div className="overflow-x-auto scrollbar-hide scroll-smooth">
@@ -139,7 +143,7 @@ export default function PremiumActivatedPage() {
                 style={{ 
                   backgroundColor: 'var(--color-card-bg, #F7F7F9)',
                   borderColor: 'var(--color-border, #797875)',
-                  borderOpacity: 0.2
+                  border: '1px solid rgba(229, 229, 229, 0.2)'
                 }}
               >
                 <h3 className="font-semibold mb-1">{benefit.title}</h3>
@@ -156,7 +160,7 @@ export default function PremiumActivatedPage() {
                 style={{ 
                   backgroundColor: 'var(--color-card-bg, #F7F7F9)',
                   borderColor: 'var(--color-border, #797875)',
-                  borderOpacity: 0.2
+                  border: '1px solid rgba(229, 229, 229, 0.2)'
                 }}
                 onClick={() => router.push(`/${partnerId}/premium/service/${service.id}`)}
               >

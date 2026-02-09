@@ -1,3 +1,5 @@
+import { Transition, Variants } from 'framer-motion'
+
 // Animation variants for Framer Motion
 export const pageTransition = {
   initial: { x: '100%', opacity: 0 },
@@ -23,7 +25,7 @@ export const slideUp = {
   exit: { y: '100%', opacity: 0 },
 }
 
-export const slideUpSpring = {
+export const slideUpSpring: Transition = {
   type: 'spring',
   damping: 30,
   stiffness: 300,

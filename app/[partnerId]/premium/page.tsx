@@ -1,25 +1,39 @@
 'use client'
 
-import React from "react"
-
+import React, { useState, useEffect } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { usePartner } from '@/contexts/partner-context'
-import { ArrowLeft, Crown, Check, TrendingUp, Banknote, Shield, Plane, Sparkles } from 'lucide-react'
+import { motion } from 'framer-motion'
+import type { LucideIcon } from 'lucide-react'
+import { 
+  ArrowLeft, 
+  Crown, 
+  Check, 
+  TrendingUp, 
+  Banknote, 
+  Shield, 
+  Plane, 
+  Sparkles,
+  Phone,
+  Globe,
+  Wifi,
+  ArrowLeftRight
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { BottomSheet } from '@/components/bottom-sheet'
 import { BottomNav } from '@/components/bottom-nav'
 import { ServiceIcon } from '@/components/svg-placeholders'
-import { useState } from 'react'
-import { LucideCoins as LucideIcons } from 'lucide-react'
+import { staggerContainer, staggerItem } from '@/lib/animations'
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  TrendingUp: LucideIcons.TrendingUp,
-  Banknote: LucideIcons.Banknote,
-  ArrowRightLeft: LucideIcons.ArrowLeftRight,
-  Wifi: LucideIcons.Wifi,
-  Phone: LucideIcons.Phone,
-  Globe: LucideIcons.Globe,
+const iconMap: Record<string, LucideIcon> = {
+  TrendingUp,
+  Banknote,
+  ArrowRightLeft: ArrowLeftRight,
+  Wifi,
+  Phone,
+  Globe,
+  Shield,
 }
 
 export default function PremiumPromoPage() {
@@ -32,12 +46,14 @@ export default function PremiumPromoPage() {
 
   const partnerId = params?.partnerId as string
 
-  if (!partner) return null
+  useEffect(() => {
+    if (isPremium && partnerId) {
+      router.push(`/${partnerId}/premium/activated`)
+    }
+  }, [isPremium, partnerId, router])
 
-  if (isPremium) {
-    router.push(`/${partnerId}/premium/activated`)
-    return null
-  }
+  if (!partner) return null
+  if (isPremium) return null
 
   const scrollToDetails = () => {
     document.getElementById('details-section')?.scrollIntoView({ behavior: 'smooth' })
@@ -57,7 +73,7 @@ export default function PremiumPromoPage() {
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--color-page-bg, #FAFAFA)' }}>
       {/* Header */}
       <div 
-        className="px-6 pt-14 pb-8"
+        className="px-6 pt-4 pb-2"
         style={{ backgroundColor: 'var(--color-accent, #FACE00)' }}
       >
         <Button
@@ -69,207 +85,274 @@ export default function PremiumPromoPage() {
         >
           <ArrowLeft className="w-6 h-6" />
         </Button>
-        <div className="flex items-center gap-2 mb-2">
-          <h1 className="text-2xl font-bold" style={{ color: 'var(--color-dark, #0E0C00)' }}>
-            {partner.subscriptionName}
-          </h1>
-        </div>
-        <p className="text-sm opacity-70" style={{ color: 'var(--color-dark, #0E0C00)' }}>
-          {partner.subscriptionPrice}
-        </p>
       </div>
 
-      {/* Hero section */}
-      <div className="px-6 py-8 space-y-6">
-        <div className="text-center space-y-2">
-          <Crown className="w-16 h-16 mx-auto" style={{ color: 'var(--color-accent, #FACE00)' }} />
-          <p className="text-muted-foreground">
-            Преміум-підписка з ексклюзивними перевагами
-          </p>
-        </div>
+      {/* Main content */}
+      <div className="flex-1 overflow-y-auto pb-24">
+        <div className="px-6 py-6 space-y-6">
+          
+          {/* Hero section */}
+          <Card className="p-8 bg-card border-[1px] border-border/20 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+            <div className="text-center space-y-3">
+              <Crown className="w-16 h-16 mx-auto" style={{ color: 'var(--color-accent, #FACE00)' }} />
+              <p className="text-sm text-muted-foreground font-semibold">{partner.subscriptionName}</p>
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="text-5xl font-bold" style={{ color: 'var(--color-dark, #0E0C00)' }}>
+                  {partner.subscriptionPrice}
+                </span>
+                <span className="text-xl text-muted-foreground">/місяць</span>
+              </div>
+            </div>
+          </Card>
 
-        <div className="space-y-3">
-          <Button 
-            onClick={handleActivate}
-            className="w-full h-12 text-lg font-semibold"
-            style={{ 
-              backgroundColor: 'var(--color-accent, #FACE00)',
-              color: 'var(--color-dark, #0E0C00)'
-            }}
-          >
-            <Crown className="w-5 h-5 mr-2" />
-            Активувати Premium
-          </Button>
-          <Button 
-            onClick={scrollToDetails}
-            variant="outline"
-            className="w-full h-12 text-lg font-semibold bg-transparent"
-          >
-            Подробніше про Premium
-          </Button>
-        </div>
-      </div>
-
-      {/* Details section */}
-      <div id="details-section" className="flex-1 px-6 pb-24 space-y-8">
-        {/* Benefits */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">Переваги від {partner.name}</h2>
+          {/* Features */}
           <div className="space-y-3">
-            {partner.benefits.map((benefit, index) => {
-              const IconComponent = iconMap[benefit.icon] || Shield
-              return (
-                <Card 
-                  key={index}
-                  className="p-4 border-[1px]"
-                  style={{ 
-                    backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-                    borderColor: 'var(--color-border, #797875)',
-                    borderOpacity: 0.2
-                  }}
+            <h2 className="text-xl font-bold">Що входить в {partner.subscriptionName}</h2>
+            <motion.div
+              className="space-y-3"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              {/* Benefits з JSON */}
+              {partner.benefits.map((benefit, index) => (
+                <motion.div
+                  key={`benefit-${index}`}
+                  variants={staggerItem}
+                  className="flex items-start gap-3"
                 >
-                  <div className="flex gap-4">
-                    <div 
-                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                  <div 
+                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                  >
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <p className="text-foreground font-medium leading-relaxed">
+                    {benefit.title}
+                  </p>
+                </motion.div>
+              ))}
+
+              {/* Сервіси (один пункт з переліком) */}
+              <motion.div
+                variants={staggerItem}
+                className="flex items-start gap-3"
+              >
+                <div 
+                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ backgroundColor: 'var(--color-accent)' }}
+                >
+                  <Check className="w-4 h-4 text-white" />
+                </div>
+                <p className="text-foreground font-medium leading-relaxed">
+                  Доступ до преміум-сервісів ({partner.services.map(s => s.name).join(', ')})
+                </p>
+              </motion.div>
+
+              {/* Статичні пункти */}
+              {[
+                'Знижки на бронювання готелів до 20%',
+                'Туристична страховка',
+                'Cashback до 15% від партнерів',
+              ].map((feature, index) => (
+                <motion.div
+                  key={`static-${index}`}
+                  variants={staggerItem}
+                  className="flex items-start gap-3"
+                >
+                  <div 
+                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                    style={{ backgroundColor: 'var(--color-accent)' }}
+                  >
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <p className="text-foreground font-medium leading-relaxed">{feature}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="space-y-3 pb-24">
+            <Button 
+              onClick={handleActivate}
+              className="w-full h-12 text-lg font-semibold"
+              style={{ 
+                backgroundColor: 'var(--color-accent, #FACE00)',
+                color: 'var(--color-dark, #0E0C00)'
+              }}
+            >
+              <Crown className="w-5 h-5 mr-2" />
+              Активувати Premium
+            </Button>
+            <Button 
+              onClick={scrollToDetails}
+              variant="outline"
+              className="w-full h-12 text-lg font-semibold bg-transparent"
+            >
+              Детальніше про Premium
+            </Button>
+          </div>
+
+          {/* Details section */}
+          <div id="details-section" className="space-y-8 pt-8">
+            {/* Benefits */}
+            <div className="space-y-4">
+              <h2 className="text-xl font-bold">Переваги від {partner.name}</h2>
+              <div className="space-y-3">
+                {partner.benefits.map((benefit, index) => {
+                  const IconComponent = iconMap[benefit.icon] || Shield
+                  return (
+                    <Card 
+                      key={index}
+                      className="p-4 border-[1px]"
                       style={{ 
-                        backgroundColor: 'var(--color-accent, #FACE00)',
-                        opacity: 0.1
+                        backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+                        border: '1px solid rgba(229, 229, 229, 0.2)'
                       }}
                     >
-                      <IconComponent className="w-6 h-6" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                    </div>
-                  </div>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
+                      <div className="flex gap-4">
+                        <div 
+                          className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                          style={{ 
+                            backgroundColor: 'var(--color-accent-light, #F7F4EA)',
+                          }}
+                        >
+                          <IconComponent 
+                            className="w-6 h-6"
+                            color="var(--color-accent)"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">{benefit.title}</h3>
+                          <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  )
+                })}
+              </div>
+            </div>
 
-        {/* Services */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">Цифрові сервіси</h2>
-          <div className="space-y-3">
-            {partner.services.map((service) => (
+            {/* Services */}
+            <div className="space-y-4">
+              <h2 className="text-xl font-bold">Цифрові сервіси</h2>
+              <div className="space-y-3">
+                {partner.services.map((service) => (
+                  <Card 
+                    key={service.id}
+                    className="p-4 cursor-pointer hover:bg-muted/50 transition-colors border-[1px]"
+                    style={{ 
+                      backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+                      border: '1px solid rgba(229, 229, 229, 0.2)'
+                    }}
+                    onClick={() => {
+                      setSelectedService(service)
+                      setShowServiceSheet(true)
+                    }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <ServiceIcon service={service.id} size={60} />
+                      <div className="flex-1">
+                        <h3 className="font-semibold">{service.name}</h3>
+                        <p className="text-sm text-muted-foreground">{service.shortDescription}</p>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Travel */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <Plane className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+                <h2 className="text-xl font-bold">Бронювання подорожей</h2>
+              </div>
               <Card 
-                key={service.id}
-                className="p-4 cursor-pointer hover:bg-muted/50 transition-colors border-[1px]"
+                className="p-4 border-[1px]"
                 style={{ 
                   backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-                  borderColor: 'var(--color-border, #797875)',
-                  borderOpacity: 0.2
-                }}
-                onClick={() => {
-                  setSelectedService(service)
-                  setShowServiceSheet(true)
+                  border: '1px solid rgba(229, 229, 229, 0.2)'
                 }}
               >
-                <div className="flex items-center gap-4">
-                  <ServiceIcon service={service.id} size={60} />
-                  <div className="flex-1">
-                    <h3 className="font-semibold">{service.name}</h3>
-                    <p className="text-sm text-muted-foreground">{service.shortDescription}</p>
-                  </div>
-                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Бронюйте готелі зі знижками до 15%</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Ексклюзивні пропозиції від партнерів</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Безкоштовна підтримка 24/7</span>
+                  </li>
+                </ul>
               </Card>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Travel */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <Plane className="w-6 h-6" style={{ color: 'var(--color-accent, #FACE00)' }} />
-            <h2 className="text-xl font-bold">Бронювання подорожей</h2>
-          </div>
-          <Card 
-            className="p-4 border-[1px]"
-            style={{ 
-              backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-              borderColor: 'var(--color-border, #797875)',
-              borderOpacity: 0.2
-            }}
-          >
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Бронюйте готелі зі знижками до 15%</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Ексклюзивні пропозиції від партнерів</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Безкоштовна підтримка 24/7</span>
-              </li>
-            </ul>
-          </Card>
-        </div>
+            {/* Insurance */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <Shield className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+                <h2 className="text-xl font-bold">Страхування</h2>
+              </div>
+              <Card 
+                className="p-4 border-[1px]"
+                style={{ 
+                  backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+                  border: '1px solid rgba(229, 229, 229, 0.2)'
+                }}
+              >
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Туристична страховка зі знижкою</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Страхування скасування подорожі</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Захист домашніх тварин</span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
 
-        {/* Insurance */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <Shield className="w-6 h-6" style={{ color: 'var(--color-accent, #FACE00)' }} />
-            <h2 className="text-xl font-bold">Страхування</h2>
+            {/* Partner offers */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <Sparkles className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+                <h2 className="text-xl font-bold">Пропозиції від брендів</h2>
+              </div>
+              <Card 
+                className="p-4 border-[1px]"
+                style={{ 
+                  backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+                  border: '1px solid rgba(229, 229, 229, 0.2)'
+                }}
+              >
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Кешбек до 15% у популярних магазинах</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Ексклюзивні знижки від партнерів</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Щомісячні оновлення пропозицій</span>
+                  </li>
+                </ul>
+              </Card>
+            </div>
           </div>
-          <Card 
-            className="p-4 border-[1px]"
-            style={{ 
-              backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-              borderColor: 'var(--color-border, #797875)',
-              borderOpacity: 0.2
-            }}
-          >
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Туристична страховка зі знижкою</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Страхування скасування подорожі</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Захист домашніх тварин</span>
-              </li>
-            </ul>
-          </Card>
-        </div>
-
-        {/* Partner offers */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6" style={{ color: 'var(--color-accent, #FACE00)' }} />
-            <h2 className="text-xl font-bold">Пропозиції від брендів</h2>
-          </div>
-          <Card 
-            className="p-4 border-[1px]"
-            style={{ 
-              backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-              borderColor: 'var(--color-border, #797875)',
-              borderOpacity: 0.2
-            }}
-          >
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Кешбек до 15% у популярних магазинах</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Ексклюзивні знижки від партнерів</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent, #FACE00)' }} />
-                <span>Щомісячні оновлення пропозицій</span>
-              </li>
-            </ul>
-          </Card>
         </div>
       </div>
 
@@ -286,8 +369,7 @@ export default function PremiumPromoPage() {
               onClick={handleCardSelect}
               style={{ 
                 backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-                borderColor: 'var(--color-border, #797875)',
-                borderOpacity: 0.2
+                border: '1px solid rgba(229, 229, 229, 0.2)'
               }}
             >
               <div className="flex items-center gap-4">

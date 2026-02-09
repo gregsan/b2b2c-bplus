@@ -64,7 +64,7 @@ export default function PremiumPage() {
     setSheetOpen(true)
   }
 
-  if (!isPremium) {
+  if (isPremium) {
     return (
       <div className="h-full flex flex-col bg-background overflow-hidden">
         {/* Header */}

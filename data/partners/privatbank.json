@@ -1,76 +1,48 @@
 {
   "id": "privatbank",
   "type": "bank",
-  "name": "ПриватБанк",
-  "subscriptionName": "Premium Banking",
-  "subscriptionPrice": "₴299/місяць",
+  "name": "ПріватБанк",
+  "subscriptionName": "ПріватБанк Premium",
+  "subscriptionPrice": "₴299",
   "colorScheme": "yellow",
   "benefits": [
     {
-      "title": "Підвищена ставка по депозиту",
-      "description": "До 12% річних на залишок понад ₴10,000. Нарахування щомісяця без мінімального терміну розміщення.",
+      "title": "Додаткові 2% до ставки за депозитом",
+      "description": "Отримуйте підвищену дохідність за строковими депозитами в гривні. Додатковий відсоток нараховується автоматично в межах преміум тарифу та дозволяє збільшити прибуток без зміни умов розміщення коштів.",
       "icon": "TrendingUp"
     },
     {
-      "title": "Збільшені ліміти на зняття готівки",
-      "description": "До ₴100,000 на добу без комісії в будь-яких банкоматах України та світу.",
+      "title": "Знижка до 20% на міжнародні перекази",
+      "description": "Знижка на комісії за міжнародні перекази, зокрема SWIFT. Дозволяє зменшити витрати на регулярні платежі за кордон — для особистих переказів, оплати послуг або підтримки рідних.",
       "icon": "Banknote"
     },
     {
-      "title": "Знижені комісії на перекази",
-      "description": "0% комісії на всі перекази між картками, на рахунки інших банків та міжнародні перекази.",
-      "icon": "ArrowRightLeft"
+      "title": "Пріоритетна підтримка 24/7",
+      "description": "Цілодобова пріоритетна підтримка без очікування в черзі. Звернення обробляються швидше, а консультації надають досвідчені спеціалісти банку в чаті або телефоном.",
+      "icon": "Phone"
     }
   ],
   "services": [
     {
-      "id": "spotify",
-      "name": "Spotify Premium",
+      "id": "Сільпо",
+      "name": "Сільпо",
       "shortDescription": "Музика без реклами",
       "fullDescription": "Повний доступ до музичної бібліотеки з понад 100 мільйонами треків, прослуховування офлайн, без реклами та обмежень. Необмежене пропускання треків та найвища якість звуку.",
       "logo": "/logos/spotify.svg"
     },
     {
-      "id": "netflix",
-      "name": "Netflix Premium",
+      "id": "Kateryna Care",
+      "name": "Kateryna Care",
       "shortDescription": "Серіали та фільми",
       "fullDescription": "Необмежений доступ до каталогу Netflix в якості 4K Ultra HD, до 4 одночасних підключень, завантаження контенту для перегляду офлайн.",
       "logo": "/logos/netflix.svg"
     },
     {
-      "id": "youtube",
-      "name": "YouTube Premium",
+      "id": "VPN Unlimited",
+      "name": "VPN Unlimited",
       "shortDescription": "Відео без реклами",
       "fullDescription": "Перегляд відео без реклами, фонове відтворення, завантаження відео для офлайн-перегляду, доступ до YouTube Music Premium.",
       "logo": "/logos/youtube.svg"
-    },
-    {
-      "id": "chatgpt",
-      "name": "ChatGPT Plus",
-      "shortDescription": "AI асистент",
-      "fullDescription": "Доступ до GPT-4, пріоритетний доступ навіть у години пік, швидша відповідь, ранній доступ до нових функцій.",
-      "logo": "/logos/chatgpt.svg"
-    },
-    {
-      "id": "notion",
-      "name": "Notion",
-      "shortDescription": "Робочий простір",
-      "fullDescription": "Необмежена кількість блоків, необмежене завантаження файлів, версійна історія до 30 днів, гостьовий доступ.",
-      "logo": "/logos/notion.svg"
-    },
-    {
-      "id": "apple-music",
-      "name": "Apple Music",
-      "shortDescription": "Музичний сервіс",
-      "fullDescription": "Доступ до 100 мільйонів пісень без реклами, прослуховування офлайн, просторовий звук Dolby Atmos, ексклюзивні релізи.",
-      "logo": "/logos/apple-music.svg"
-    },
-    {
-      "id": "disney",
-      "name": "Disney+",
-      "shortDescription": "Розваги для сім'ї",
-      "fullDescription": "Необмежений доступ до контенту Disney, Pixar, Marvel, Star Wars, National Geographic. До 4 одночасних трансляцій, завантаження для офлайн-перегляду.",
-      "logo": "/logos/disney.svg"
     }
   ]
 }
