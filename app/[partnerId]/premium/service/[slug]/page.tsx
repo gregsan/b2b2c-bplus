@@ -52,7 +52,17 @@ export default function ServiceDetailPage() {
       <div className="flex-1 p-6 space-y-6">
         {/* Logo */}
         <div className="flex justify-center">
-          <ServiceIcon service={slug} size={120} />
+          {service.logo ? (
+            <div className="w-[120px] h-[120px] rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-2">
+              <img 
+                src={service.logo} 
+                alt={service.name} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ) : (
+            <ServiceIcon service={slug} size={120} />
+          )}
         </div>
 
         {/* Service Info */}

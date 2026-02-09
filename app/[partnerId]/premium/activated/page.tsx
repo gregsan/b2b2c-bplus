@@ -165,7 +165,19 @@ export default function PremiumActivatedPage() {
                 onClick={() => router.push(`/${partnerId}/premium/service/${service.id}`)}
               >
                 <div className="flex items-center gap-4">
-                  <ServiceIcon service={service.id} size={60} />
+                  <div className="flex justify-center">
+                    {service.logo ? (
+                      <div className="w-[80px] h-[80px] rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-2">
+                        <img 
+                          src={service.logo} 
+                          alt={service.name} 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <ServiceIcon service={service.id} size={60} />
+                    )}
+                  </div>
                   <div className="flex-1">
                     <p className="font-semibold text-base">{service.name}</p>
                     <p className="text-sm text-muted-foreground">{service.shortDescription}</p>
