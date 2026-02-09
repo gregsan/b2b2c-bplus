@@ -24,21 +24,21 @@
   ],
   "services": [
     {
-      "id": "Сільпо",
+      "id": "silpo",
       "name": "Сільпо",
       "shortDescription": "Музика без реклами",
       "fullDescription": "Повний доступ до музичної бібліотеки з понад 100 мільйонами треків, прослуховування офлайн, без реклами та обмежень. Необмежене пропускання треків та найвища якість звуку.",
       "logo": "/logos/spotify.svg"
     },
     {
-      "id": "Kateryna Care",
+      "id": "KaterynaCare",
       "name": "Kateryna Care",
       "shortDescription": "Серіали та фільми",
       "fullDescription": "Необмежений доступ до каталогу Netflix в якості 4K Ultra HD, до 4 одночасних підключень, завантаження контенту для перегляду офлайн.",
       "logo": "/logos/netflix.svg"
     },
     {
-      "id": "VPN Unlimited",
+      "id": "VPNUnlimited",
       "name": "VPN Unlimited",
       "shortDescription": "Відео без реклами",
       "fullDescription": "Перегляд відео без реклами, фонове відтворення, завантаження відео для офлайн-перегляду, доступ до YouTube Music Premium.",
