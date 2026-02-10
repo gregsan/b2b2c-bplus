@@ -7,12 +7,11 @@ import { BottomSheet } from '@/components/bottom-sheet'
 import { PartnerIcon } from '@/components/svg-placeholders'
 
 const partners = [
-  { slug: 'rozetka', name: 'Rozetka', offer: 'Кешбек 10%', type: 'cashback' },
-  { slug: 'comfy', name: 'Comfy', offer: 'Кешбек 8%', type: 'cashback' },
-  { slug: 'silpo', name: 'Silpo', offer: 'Знижка 15%', type: 'discount' },
-  { slug: 'atb', name: 'АТБ', offer: 'Кешбек 12%', type: 'cashback' },
-  { slug: 'varus', name: 'Varus', offer: 'Знижка 10%', type: 'discount' },
-  { slug: 'apteka', name: 'Моя Аптека', offer: 'Знижка 20%', type: 'discount' },
+  { slug: 'rozetka', name: 'Rozetka', offer: 'Кешбек 10%', type: 'cashback', logo: '/partners/rozetka.png' },
+  { slug: 'comfy', name: 'Comfy', offer: 'Кешбек 8%', type: 'cashback', logo: '/partners/comfy.png' },
+  { slug: 'atb', name: 'АТБ', offer: 'Кешбек 12%', type: 'cashback', logo: '/partners/atb.png' },
+  { slug: 'varus', name: 'Varus', offer: 'Знижка 10%', type: 'discount', logo: '/partners/varus.png' },
+  { slug: 'apteka', name: 'Моя Аптека', offer: 'Знижка 20%', type: 'discount', logo: '/partners/anc.png' },
 ]
 
 export function PartnersTab() {
@@ -39,9 +38,14 @@ export function PartnersTab() {
             onClick={() => handlePartnerClick(partner)}
           >
             <div className="space-y-3">
-              <div className="w-full h-20 flex items-center justify-center">
-                <PartnerIcon partner={partner.slug} size={60} />
+              {partner.logo ? (
+              <div className="w-[80px] h-[80px] rounded-xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-2">
+                <img src={partner.logo} alt={partner.name} className="w-full h-full object-contain" />
               </div>
+            ) : (
+              <PartnerIcon partner={partner.slug} size={60} />
+            )}
+
               <div>
                 <p className="font-semibold text-sm">{partner.name}</p>
                 <div 
@@ -64,7 +68,13 @@ export function PartnersTab() {
           <div className="space-y-6">
             <div className="text-center space-y-4">
               <div className="w-24 h-24 mx-auto">
-                <PartnerIcon partner={selectedPartner.slug} size={96} />
+                {selectedPartner.logo ? (
+                  <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-3">
+                    <img src={selectedPartner.logo} alt={selectedPartner.name} className="w-full h-full object-contain" />
+                  </div>
+                ) : (
+                  <PartnerIcon partner={selectedPartner.slug} size={96} />
+                )}
               </div>
               <h2 className="text-2xl font-bold">{selectedPartner.name}</h2>
               <div 

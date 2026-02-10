@@ -6,35 +6,52 @@ export interface ColorScheme {
 }
 
 export const colorSchemes: Record<string, ColorScheme> = {
-  blue: {
-    accent: '#5B7C99',
-    accentHover: '#4A6A85',
-    accentLight: '#EBF0F5',
-    dark: '#1E3A52',
-  },
+  // 🟢 Green Group (PrivatBank, OTP, Ukrsibbank, A Bank, Credit Agricole, Ukrgas)
   green: {
-    accent: '#5F8A6F',
-    accentHover: '#4E7A5E',
-    accentLight: '#EDF4F0',
-    dark: '#1F3D2F',
+    accent: '#00A651',        // Насичений зелений
+    accentHover: '#008F47',   // Темніший при hover
+    accentLight: '#E6F7EF',   // Світлий відтінок для фонів
+    dark: '#E6F7EF',          // Темно-зелений
   },
-  purple: {
-    accent: '#7D6B9D',
-    accentHover: '#6A5A87',
-    accentLight: '#F0EDF5',
-    dark: '#2D1F42',
-  },
+
+  // 🟡 Yellow/Orange Group (Raiffeisen, Idea, Tascombank, Kredo, Piraeus)
   yellow: {
-    accent: '#B8A055',
-    accentHover: '#A08F48',
-    accentLight: '#F7F4EA',
-    dark: '#3D3420',
+    accent: '#FACE00',        // Яскравий жовтий (як у ПриватБанку)
+    accentHover: '#E6B800',   // Золотистий при hover
+    accentLight: '#FFF9E6',   // М'який жовтий фон
+    dark: '#4D3E00',          // Темно-жовтий/коричневий
   },
+
+  // 🔵 Blue Group (Alliance, Asvio, Глобус, Kredit Dnipro, BIZBANK, МТБ)
+  blue: {
+    accent: '#0066CC',        // Класичний банківський синій
+    accentHover: '#0052A3',   // Темно-синій при hover
+    accentLight: '#E6F2FF',   // Світло-блакитний фон
+    dark: '#002952',          // Глибокий синій
+  },
+
+  // 🔴 Red Group (Pravex, Procredit)
+  red: {
+    accent: '#E60000',        // Насичений червоний
+    accentHover: '#B30000',   // Темно-червоний при hover
+    accentLight: '#FFE6E6',   // Світло-рожевий фон
+    dark: '#4D0000',          // Бордовий
+  },
+
+  // 🟣 Special Group (izibank - рожевий неон)
+  pink: {
+    accent: '#FF1A75',        // Яскравий рожевий
+    accentHover: '#E6005C',   // Темно-рожевий при hover
+    accentLight: '#FFE6F2',   // Ніжно-рожевий фон
+    dark: '#4D0024',          // Темно-бордовий
+  },
+
+  // ⚫ Gray (резервна нейтральна схема)
   gray: {
-    accent: '#6B7280',
-    accentHover: '#575E6B',
-    accentLight: '#F1F2F4',
-    dark: '#1F2937',
+    accent: '#475569',        // Сірий з синім відтінком
+    accentHover: '#334155',   // Темніший сірий
+    accentLight: '#F1F5F9',   // Світло-сірий фон
+    dark: '#1E293B',          // Темно-сірий
   },
 }
 
@@ -44,6 +61,7 @@ export function applyColorScheme(scheme: ColorScheme) {
   root.style.setProperty('--color-accent-hover', scheme.accentHover)
   root.style.setProperty('--color-accent-light', scheme.accentLight)
   root.style.setProperty('--color-dark', scheme.dark)
+  
   // Base colors - same for all partners
   root.style.setProperty('--color-page-bg', '#FAFAFA')
   root.style.setProperty('--color-card-bg', '#FFFFFF')

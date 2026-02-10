@@ -1,10 +1,10 @@
 {
-  "id": "privatbank",
+  "id": "izibank",
   "type": "bank",
-  "name": "ПріватБанк",
-  "subscriptionName": "ПріватБанк Premium",
+  "name": "IziBank",
+  "subscriptionName": "IziBank Premium",
   "subscriptionPrice": "₴299",
-  "colorScheme": "green",
+  "colorScheme": "pink",
   "benefits": [
     {
       "title": "Додаткові 2% до ставки за депозитом",

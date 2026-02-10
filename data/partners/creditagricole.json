@@ -1,8 +1,8 @@
 {
-  "id": "privatbank",
+  "id": "creditagricole",
   "type": "bank",
-  "name": "ПріватБанк",
-  "subscriptionName": "ПріватБанк Premium",
+  "name": "Credit Agricole",
+  "subscriptionName": "Credit Agricole Premium",
   "subscriptionPrice": "₴299",
   "colorScheme": "green",
   "benefits": [

@@ -1,10 +1,10 @@
 {
-  "id": "privatbank",
+  "id": "ideabank",
   "type": "bank",
-  "name": "ПріватБанк",
-  "subscriptionName": "ПріватБанк Premium",
+  "name": "IdeaBank",
+  "subscriptionName": "Idea Premium",
   "subscriptionPrice": "₴299",
-  "colorScheme": "green",
+  "colorScheme": "yellow",
   "benefits": [
     {
       "title": "Додаткові 2% до ставки за депозитом",

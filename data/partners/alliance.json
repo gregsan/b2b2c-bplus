@@ -1,10 +1,10 @@
 {
-  "id": "privatbank",
+  "id": "alliance",
   "type": "bank",
-  "name": "ПріватБанк",
-  "subscriptionName": "ПріватБанк Premium",
+  "name": "Alliance Bank",
+  "subscriptionName": "Alliance Premium",
   "subscriptionPrice": "₴299",
-  "colorScheme": "green",
+  "colorScheme": "blue",
   "benefits": [
     {
       "title": "Додаткові 2% до ставки за депозитом",
