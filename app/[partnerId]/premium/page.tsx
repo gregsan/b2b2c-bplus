@@ -151,8 +151,8 @@ export default function PremiumPromoPage() {
 
               {/* Статичні пункти */}
               {[
-                'Знижки на бронювання готелів до 20%',
-                'Туристична страховка',
+                'Знижки на бронювання готелів до 15%',
+                'Страхування подорожей, заходів і домашніх улюбленців',
                 'Cashback до 15% від партнерів',
               ].map((feature, index) => (
                 <motion.div
@@ -252,7 +252,19 @@ export default function PremiumPromoPage() {
                     }}
                   >
                     <div className="flex items-center gap-4">
-                      <ServiceIcon service={service.id} size={60} />
+                      <div className="flex justify-center">
+                        {service.logo ? (
+                          <div className="w-[80px] h-[80px] rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-2">
+                            <img 
+                              src={service.logo} 
+                              alt={service.name} 
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <ServiceIcon service={service.id} size={60} />
+                        )}
+                      </div>
                       <div className="flex-1">
                         <h3 className="font-semibold">{service.name}</h3>
                         <p className="text-sm text-muted-foreground">{service.shortDescription}</p>
@@ -309,15 +321,15 @@ export default function PremiumPromoPage() {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Туристична страховка зі знижкою</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Страхування скасування подорожі</span>
+                    <span>Страхування відміни подорожі або заходу</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
                     <span>Захист домашніх тварин</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <span>Туристична страховка зі знижкою</span>
                   </li>
                 </ul>
               </Card>
@@ -394,7 +406,17 @@ export default function PremiumPromoPage() {
         {selectedService && (
           <div className="space-y-6">
             <div className="flex justify-center">
-              <ServiceIcon service={selectedService.id} size={100} />
+              {selectedService.logo ? (
+                <div className="w-[120px] h-[120px] rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-3">
+                  <img 
+                    src={selectedService.logo} 
+                    alt={selectedService.name} 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                <ServiceIcon service={selectedService.id} size={100} />
+              )}
             </div>
             <div className="space-y-2 text-center">
               <h2 className="text-2xl font-bold">{selectedService.name}</h2>

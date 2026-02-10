@@ -77,7 +77,7 @@ export default function ServiceDetailPage() {
           style={{ 
             backgroundColor: 'var(--color-card-bg, #F7F7F9)',
             borderColor: 'var(--color-border, #797875)',
-            borderOpacity: 0.2
+            border: '1px solid rgba(229, 229, 229, 0.2)'
           }}
         >
           <Button 

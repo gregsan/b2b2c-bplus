@@ -8,6 +8,7 @@ export interface Hotel {
   rating: number
   lat: number
   lng: number
+  image: string
   amenities: string[]
   rooms: {
     type: string
@@ -33,6 +34,7 @@ export const hotels: Hotel[] = [
     rating: 4.8,
     lat: 50.4501,
     lng: 30.5234,
+    image: '/hotels/hotel-1.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Спа', 'Басейн', 'Ресторан', 'Парковка', 'Тренажерний зал', 'Трансфер'],
     rooms: [
       { type: 'Standard', price: 4500, premiumPrice: 3600 },
@@ -55,6 +57,7 @@ export const hotels: Hotel[] = [
     rating: 4.7,
     lat: 49.8419,
     lng: 24.0315,
+    image: '/hotels/hotel-2.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Ресторан', 'Парковка', 'Камін', 'Бібліотека'],
     rooms: [
       { type: 'Standard', price: 3200, premiumPrice: 2560 },
@@ -77,6 +80,7 @@ export const hotels: Hotel[] = [
     rating: 4.6,
     lat: 48.8566,
     lng: 2.3522,
+    image: '/hotels/hotel-3.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Консьєрж', 'Ресторан', 'Бар', 'Трансфер'],
     rooms: [
       { type: 'Standard', price: 8500, premiumPrice: 6800 },
@@ -99,6 +103,7 @@ export const hotels: Hotel[] = [
     rating: 4.9,
     lat: 41.3851,
     lng: 2.1734,
+    image: '/hotels/hotel-4.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Басейн на даху', 'Спа', 'Бар', 'Тренажерний зал'],
     rooms: [
       { type: 'Standard', price: 7200, premiumPrice: 5760 },
@@ -121,6 +126,7 @@ export const hotels: Hotel[] = [
     rating: 4.8,
     lat: 41.9028,
     lng: 12.4964,
+    image: '/hotels/hotel-5.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Спа', 'Басейн', 'Ресторан Мішлен', 'Парковка', 'Трансфер', 'Консьєрж'],
     rooms: [
       { type: 'Standard', price: 9500, premiumPrice: 7600 },
@@ -143,6 +149,7 @@ export const hotels: Hotel[] = [
     rating: 4.5,
     lat: 46.4825,
     lng: 30.7233,
+    image: '/hotels/hotel-6.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Ресторан', 'Бар', 'Парковка', 'Вид на море'],
     rooms: [
       { type: 'Standard', price: 3800, premiumPrice: 3040 },
@@ -165,6 +172,7 @@ export const hotels: Hotel[] = [
     rating: 4.9,
     lat: 50.4462,
     lng: 30.5172,
+    image: '/hotels/hotel-7.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Спа', 'Басейн', 'Ресторан', 'Парковка', 'Тренажерний зал', 'Конференц-зали'],
     rooms: [
       { type: 'Standard', price: 5500, premiumPrice: 4400 },
@@ -187,6 +195,7 @@ export const hotels: Hotel[] = [
     rating: 4.4,
     lat: 49.8438,
     lng: 24.0297,
+    image: '/hotels/hotel-8.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Ресторан', 'Парковка', 'Лобі-бар'],
     rooms: [
       { type: 'Standard', price: 2800, premiumPrice: 2240 },
@@ -209,6 +218,7 @@ export const hotels: Hotel[] = [
     rating: 4.9,
     lat: 48.8651,
     lng: 2.3282,
+    image: '/hotels/hotel-9.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Спа', 'Ресторан Мішлен', 'Бар', 'Консьєрж', 'Трансфер'],
     rooms: [
       { type: 'Standard', price: 12000, premiumPrice: 9600 },
@@ -231,6 +241,7 @@ export const hotels: Hotel[] = [
     rating: 4.8,
     lat: 41.3879,
     lng: 2.1950,
+    image: '/hotels/hotel-10.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Басейн', 'Спа', 'Пляж', 'Ресторан', 'Тренажерний зал', 'Парковка'],
     rooms: [
       { type: 'Standard', price: 10500, premiumPrice: 8400 },
@@ -253,6 +264,7 @@ export const hotels: Hotel[] = [
     rating: 4.7,
     lat: 41.9076,
     lng: 12.4779,
+    image: '/hotels/hotel-11.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Спа', 'Сад', 'Ресторан', 'Бар', 'Тренажерний зал'],
     rooms: [
       { type: 'Standard', price: 8800, premiumPrice: 7040 },
@@ -275,6 +287,7 @@ export const hotels: Hotel[] = [
     rating: 4.6,
     lat: 50.4421,
     lng: 30.5197,
+    image: '/hotels/hotel-12.jpg',
     amenities: ['Wi-Fi', 'Сніданок', 'Басейн', 'Спа', 'Ресторан', 'Парковка', 'Тренажерний зал'],
     rooms: [
       { type: 'Standard', price: 4200, premiumPrice: 3360 },

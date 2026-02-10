@@ -111,8 +111,8 @@ export function TravelTab() {
               onClick={() => router.push(`/${partnerId}/premium/travel/hotel/${hotel.id}`)}
             >
               <div className="relative">
-                <img
-                  src={`https://picsum.photos/390/160?random=${hotel.id}`}
+               <img
+                  src={hotel.image}
                   alt={hotel.name}
                   className="w-full h-32 object-cover"
                 />

@@ -24,7 +24,7 @@ export default function HotelDetailPage() {
       {/* Header */}
       <div className="relative">
         <img
-          src={`https://picsum.photos/440/300?random=${hotel.id}`}
+          src={hotel.image}
           alt={hotel.name}
           className="w-full h-64 object-cover"
         />
