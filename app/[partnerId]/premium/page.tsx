@@ -97,7 +97,7 @@ export default function PremiumPromoPage() {
               <Crown className="w-16 h-16 mx-auto" style={{ color: 'var(--color-accent, #FACE00)' }} />
               <p className="text-sm text-muted-foreground font-semibold">{partner.subscriptionName}</p>
               <div className="flex items-baseline justify-center gap-2">
-                <span className="text-5xl font-bold" style={{ color: 'var(--color-dark, #0E0C00)' }}>
+                <span className="text-5xl font-bold" style={{ color: 'var(--color-accent, #0E0C00)' }}>
                   {partner.subscriptionPrice}
                 </span>
                 <span className="text-xl text-muted-foreground">/місяць</span>

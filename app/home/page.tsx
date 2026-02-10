@@ -9,7 +9,7 @@ import { AvatarPlaceholder } from '@/components/svg-placeholders'
 import Link from 'next/link'
 
 const transactions = [
-  { id: 1, name: 'Силпо', amount: -456.50, category: 'Продукти', time: '14:32' },
+  { id: 1, name: 'Сильпо', amount: -456.50, category: 'Продукти', time: '14:32' },
   { id: 2, name: 'Поповнення', amount: 5000.00, category: 'Переказ', time: '10:15' },
   { id: 3, name: 'Netflix', amount: -299.00, category: 'Підписки', time: 'Вчора' },
   { id: 4, name: 'АТБ', amount: -234.80, category: 'Продукти', time: 'Вчора' },

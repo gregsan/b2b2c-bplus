@@ -1,8 +1,8 @@
 {
   "id": "privatbank",
   "type": "bank",
-  "name": "ПріватБанк",
-  "subscriptionName": "ПріватБанк Premium",
+  "name": "ПриватБанк",
+  "subscriptionName": "ПриватБанк Premium",
   "subscriptionPrice": "₴299",
   "colorScheme": "green",
   "benefits": [

@@ -53,7 +53,7 @@ export function InsuranceTab() {
             <div className="flex items-start gap-4">
               <div 
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: 'rgba(250, 206, 0, 0.1)' }}
+                style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, transparent)' }}
               >
                 <Shield className="w-6 h-6" style={{ color: 'var(--color-accent, #FACE00)' }} />
               </div>
@@ -73,7 +73,7 @@ export function InsuranceTab() {
             <div className="text-center space-y-2">
               <div 
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto"
-                style={{ backgroundColor: 'rgba(250, 206, 0, 0.1)' }}
+                style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, transparent)' }}
               >
                 <Shield className="w-8 h-8" style={{ color: 'var(--color-accent, #FACE00)' }} />
               </div>

@@ -19,7 +19,7 @@ export const colorSchemes: Record<string, ColorScheme> = {
     accent: '#FACE00',        // Яскравий жовтий (як у ПриватБанку)
     accentHover: '#E6B800',   // Золотистий при hover
     accentLight: '#FFF9E6',   // М'який жовтий фон
-    dark: '#4D3E00',          // Темно-жовтий/коричневий
+    dark: '#FFF9E6',          // Темно-жовтий/коричневий
   },
 
   // 🔵 Blue Group (Alliance, Asvio, Глобус, Kredit Dnipro, BIZBANK, МТБ)
@@ -27,7 +27,7 @@ export const colorSchemes: Record<string, ColorScheme> = {
     accent: '#0066CC',        // Класичний банківський синій
     accentHover: '#0052A3',   // Темно-синій при hover
     accentLight: '#E6F2FF',   // Світло-блакитний фон
-    dark: '#002952',          // Глибокий синій
+    dark: '#E6F2FF',          // Глибокий синій
   },
 
   // 🔴 Red Group (Pravex, Procredit)
@@ -35,7 +35,7 @@ export const colorSchemes: Record<string, ColorScheme> = {
     accent: '#E60000',        // Насичений червоний
     accentHover: '#B30000',   // Темно-червоний при hover
     accentLight: '#FFE6E6',   // Світло-рожевий фон
-    dark: '#4D0000',          // Бордовий
+    dark: '#FFE6E6',          // Бордовий
   },
 
   // 🟣 Special Group (izibank - рожевий неон)
@@ -43,7 +43,7 @@ export const colorSchemes: Record<string, ColorScheme> = {
     accent: '#FF1A75',        // Яскравий рожевий
     accentHover: '#E6005C',   // Темно-рожевий при hover
     accentLight: '#FFE6F2',   // Ніжно-рожевий фон
-    dark: '#4D0024',          // Темно-бордовий
+    dark: '#FFE6F2',          // Темно-бордовий
   },
 
   // ⚫ Gray (резервна нейтральна схема)
@@ -51,7 +51,7 @@ export const colorSchemes: Record<string, ColorScheme> = {
     accent: '#475569',        // Сірий з синім відтінком
     accentHover: '#334155',   // Темніший сірий
     accentLight: '#F1F5F9',   // Світло-сірий фон
-    dark: '#1E293B',          // Темно-сірий
+    dark: '#F1F5F9',          // Темно-сірий
   },
 }
 
