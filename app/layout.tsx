@@ -15,9 +15,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'NeoBank - Твій цифровий банк',
-  description: 'Сучасний фінтех-банк для України',
-  generator: 'v0.app',
+  title: 'BenefitsPlus Products Demo Showcase',
+  description: 'Demo showcase of BenefitsPlus Products, a platform for skyrocketing your loyalty program with exclusive perks and rewards.',
 }
 
 export default function RootLayout({
