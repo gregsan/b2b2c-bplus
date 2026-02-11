@@ -43,7 +43,7 @@ export function HomeOperatorTemplate() {
             style={{ 
               backgroundColor: 'var(--color-card-bg, #F0F4F8)',
               borderColor: 'var(--color-border, #6B7B8C)',
-              borderOpacity: 0.2
+              border: '1px solid rgba(229, 229, 229, 0.2)'
             }}
           >
             <div className="space-y-4">
@@ -75,7 +75,7 @@ export function HomeOperatorTemplate() {
             style={{ 
               backgroundColor: 'var(--color-card-bg, #F0F4F8)',
               borderColor: 'var(--color-border, #6B7B8C)',
-              borderOpacity: 0.2
+              border: '1px solid rgba(229, 229, 229, 0.2)'
             }}
           >
             <h3 className="font-semibold mb-4">Використано за місяць</h3>
@@ -139,7 +139,7 @@ export function HomeOperatorTemplate() {
               style={{ 
                 backgroundColor: 'var(--color-card-bg, #F0F4F8)',
                 borderColor: 'var(--color-border, #6B7B8C)',
-                borderOpacity: 0.2
+                border: '1px solid rgba(229, 229, 229, 0.2)'
               }}
             >
               <div className="flex items-start justify-between">
@@ -150,7 +150,7 @@ export function HomeOperatorTemplate() {
                       backgroundColor: 'var(--color-accent, #0066FF)',
                       color: 'var(--color-dark, #001A33)',
                       borderColor: 'var(--color-dark, #001A33)',
-                      borderOpacity: 0.2
+                      border: '1px solid rgba(229, 229, 229, 0.2)'
                     }}
                   >
                     <Crown className="w-3 h-3" />
