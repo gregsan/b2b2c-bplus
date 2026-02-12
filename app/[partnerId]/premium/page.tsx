@@ -25,6 +25,7 @@ import { BottomSheet } from '@/components/bottom-sheet'
 import { BottomNav } from '@/components/bottom-nav'
 import { ServiceIcon } from '@/components/svg-placeholders'
 import { staggerContainer, staggerItem } from '@/lib/animations'
+import { getInsuranceShortList, getInsuranceSummary } from '@/data/insurance/insurance-data'
 
 const iconMap: Record<string, LucideIcon> = {
   TrendingUp,
@@ -152,7 +153,7 @@ export default function PremiumPromoPage() {
               {/* Статичні пункти */}
               {[
                 'Знижки на бронювання готелів до 15%',
-                'Страхування подорожей, заходів і домашніх улюбленців',
+                getInsuranceSummary(partner.type),
                 'Cashback до 15% від партнерів',
               ].map((feature, index) => (
                 <motion.div
@@ -319,18 +320,12 @@ export default function PremiumPromoPage() {
                 }}
               >
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Страхування відміни подорожі або заходу</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Захист домашніх тварин</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Туристична страховка зі знижкою</span>
-                  </li>
+                  {getInsuranceShortList(partner.type).map((title, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                      <span>{title}</span>
+                    </li>
+                  ))}
                 </ul>
               </Card>
             </div>

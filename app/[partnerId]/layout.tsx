@@ -25,8 +25,10 @@ import globusbankData from '@/data/partners/globusbank.json'
 import kreditdniproData from '@/data/partners/kreditdnipro.json'
 import lifecellData from '@/data/partners/lifecell.json'
 import piraeusbankData from '@/data/partners/piraeusbank.json'
+import pivdenyData from '@/data/partners/pivdeny.json'
 import procreditData from '@/data/partners/procredit.json'
 import ukrgasbankData from '@/data/partners/ukrgasbank.json'
+import ukrnaftaData from '@/data/partners/ukrnafta.json'
 import type { PartnerConfig } from '@/types/partner'
 
 const partnerData: Record<string, PartnerConfig> = {
@@ -50,8 +52,10 @@ const partnerData: Record<string, PartnerConfig> = {
   kreditdnipro: kreditdniproData as PartnerConfig,
   lifecell: lifecellData as PartnerConfig,
   piraeusbank: piraeusbankData as PartnerConfig,
+  pivdeny: pivdenyData as PartnerConfig,
   procredit: procreditData as PartnerConfig,
   ukrgasbank: ukrgasbankData as PartnerConfig,
+  ukrnafta: ukrnaftaData as PartnerConfig,
 }
 
 export default function PartnerLayout({

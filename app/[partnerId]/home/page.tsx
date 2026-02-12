@@ -3,6 +3,7 @@
 import { usePartner } from '@/contexts/partner-context'
 import { HomeBankTemplate } from '@/components/home-bank'
 import { HomeOperatorTemplate } from '@/components/home-operator'
+import { HomeGasStationTemplate } from '@/components/home-gas-station'
 import { BottomNav } from '@/components/bottom-nav'
 
 export default function HomePage() {
@@ -12,9 +13,22 @@ export default function HomePage() {
     return null
   }
 
+  const renderTemplate = () => {
+    switch (partner.type) {
+      case 'bank':
+        return <HomeBankTemplate />
+      case 'operator':
+        return <HomeOperatorTemplate />
+      case 'gas-station':
+        return <HomeGasStationTemplate />
+      default:
+        return <HomeBankTemplate />
+    }
+  }
+
   return (
     <div className="h-full flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--color-page-bg, #FAFAFA)' }}>
-      {partner.type === 'bank' ? <HomeBankTemplate /> : <HomeOperatorTemplate />}
+      {renderTemplate()}
       <BottomNav />
     </div>
   )

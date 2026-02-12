@@ -14,7 +14,7 @@ export interface PartnerService {
 
 export interface PartnerConfig {
   id: string
-  type: 'bank' | 'operator'
+  type: 'bank' | 'operator' | 'gas-station'
   name: string
   subscriptionName: string
   subscriptionPrice: string

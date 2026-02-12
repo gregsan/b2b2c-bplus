@@ -5,33 +5,20 @@ import { Shield } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { BottomSheet } from '@/components/bottom-sheet'
-
-const insuranceProducts = [
-  {
-    title: 'Страхування відміни подорожі або заходу',
-    desc: 'Захист від непередбачених обставин',
-    price: 'включено в тариф',
-    details: 'Отримайте повернення до 70% від вартості подорожі чи заходу при скасуванні через хворобу, нещасний випадок або інші форс-мажорні обставини.',
-  },
-  {
-    title: 'Туристична страховка',
-    desc: 'Медичне страхування за кордоном',
-    price: 'включено в тариф',
-    details: 'Повне медичне страхування під час подорожей за кордон. Покриття до €50,000 на медичні витрати, включаючи госпіталізацію, екстрену допомогу та репатріацію. Працює в усіх країнах світу.',
-  },
-  {
-    title: 'Захист домашніх тварин',
-    desc: 'Медичне страхування для улюбленців',
-    price: 'включено в тариф',
-    details: 'Покриття форс-мажорних витрат на ветеринара. Сума компенсації до 30 000 грн і залежить від типу страхового випадку.',
-  },
-]
+import { usePartner } from '@/contexts/partner-context'
+import { insuranceByType, type InsuranceProduct } from '@/data/insurance/insurance-data'
 
 export function InsuranceTab() {
-  const [selectedInsurance, setSelectedInsurance] = useState<typeof insuranceProducts[0] | null>(null)
+  const { partner } = usePartner()
+  const [selectedInsurance, setSelectedInsurance] = useState<InsuranceProduct | null>(null)
   const [sheetOpen, setSheetOpen] = useState(false)
 
-  const handleInsuranceClick = (insurance: typeof insuranceProducts[0]) => {
+  // ✅ Використовуємо дані з файлу
+  const insuranceProducts = partner 
+    ? insuranceByType[partner.type] || []
+    : []
+
+  const handleInsuranceClick = (insurance: InsuranceProduct) => {
     setSelectedInsurance(insurance)
     setSheetOpen(true)
   }
@@ -55,12 +42,12 @@ export function InsuranceTab() {
                 className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, transparent)' }}
               >
-                <Shield className="w-6 h-6" style={{ color: 'var(--color-accent, #FACE00)' }} />
+                <Shield className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold mb-1">{insurance.title}</h3>
                 <p className="text-sm text-muted-foreground mb-2">{insurance.desc}</p>
-                <p className="text-sm font-semibold" style={{ color: 'var(--color-accent, #FACE00)' }}>{insurance.price}</p>
+                <p className="text-sm font-semibold" style={{ color: 'var(--color-accent)' }}>{insurance.price}</p>
               </div>
             </div>
           </Card>
@@ -75,15 +62,15 @@ export function InsuranceTab() {
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto"
                 style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, transparent)' }}
               >
-                <Shield className="w-8 h-8" style={{ color: 'var(--color-accent, #FACE00)' }} />
+                <Shield className="w-8 h-8" style={{ color: 'var(--color-accent)' }} />
               </div>
               <h2 className="text-2xl font-bold">{selectedInsurance.title}</h2>
-              <p className="text-lg font-semibold" style={{ color: 'var(--color-accent, #FACE00)' }}>{selectedInsurance.price}</p>
+              <p className="text-lg font-semibold" style={{ color: 'var(--color-accent)' }}>{selectedInsurance.price}</p>
             </div>
             <p className="text-muted-foreground leading-relaxed">{selectedInsurance.details}</p>
             <Button 
               className="w-full h-12 cursor-not-allowed"
-              style={{ backgroundColor: 'var(--color-accent, #FACE00)', color: 'var(--color-dark, #0E0C00)' }}
+              style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-dark)' }}
               disabled
             >
               Оформити
