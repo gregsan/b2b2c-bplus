@@ -1,8 +1,8 @@
 {
   "id": "monobank",
   "type": "bank",
-  "name": "МоноБанк",
-  "subscriptionName": "Моно Premium",
+  "name": "Monobank",
+  "subscriptionName": "Mono Premium",
   "subscriptionPrice": "₴179",
   "colorScheme": "gray",
   "benefits": [
@@ -19,13 +19,13 @@
     {
       "title": "+1 категорія кешбеку на вибір",
       "description": "Додаткова категорія на вибір для отримання кешбеку, яку ви обираєте самостійно. Більше гнучкості у щоденних витратах та більше вигоди від покупок.",
-      "icon": "Phone"
+      "icon": "Gem"
     }
   ],
   "services": [
        {
       "id": "kstv",
-      "name": "КиївстарTV",
+      "name": "КиївстарТБ",
       "shortDescription": "Кіно, мультики, серіали та шоу українською мовою",
       "fullDescription": "Платформа кіно та телебачення з контентом від українських та зарубіжних студій і телеканалів у HD якості",
       "logo": "/logos/kstv.png"
