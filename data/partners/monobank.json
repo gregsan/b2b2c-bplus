@@ -1,10 +1,10 @@
 {
-  "id": "pivdeny",
+  "id": "monobank",
   "type": "bank",
-  "name": "Південний",
-  "subscriptionName": "Південний Premium",
+  "name": "МоноБанк",
+  "subscriptionName": "Моно Premium",
   "subscriptionPrice": "₴179",
-  "colorScheme": "green",
+  "colorScheme": "gray",
   "benefits": [
     {
       "title": "Додаткові 2% до ставки за депозитом",
@@ -17,8 +17,8 @@
       "icon": "Banknote"
     },
     {
-      "title": "Пріоритетна підтримка 24/7",
-      "description": "Цілодобова пріоритетна підтримка без очікування в черзі. Звернення обробляються швидше, а консультації надають досвідчені спеціалісти банку в чаті або телефоном.",
+      "title": "+1 категорія кешбеку на вибір",
+      "description": "Додаткова категорія на вибір для отримання кешбеку, яку ви обираєте самостійно. Більше гнучкості у щоденних витратах та більше вигоди від покупок.",
       "icon": "Phone"
     }
   ],
@@ -45,11 +45,11 @@
       "logo": "/logos/vpn-unlim.png"
     },
     {
-      "id": "chatmnd",
-      "name": "ChatMind",
-      "shortDescription": "Швидкий та зручний спосіб вивчати нове",
-      "fullDescription": "Обирайте теми, проходьте швидки уроки, відстежуйте прогресс та ставайте кращою версією себе",
-      "logo": "/logos/chatmind.png"
+      "id": "luminar",
+      "name": "Luminar: AI Photo Editor",
+      "shortDescription": "Просте редагування фото з ШІ",
+      "fullDescription": "Потужний фоторедактор зі штучним інтелектом, створений для сучасної фотографії та щоденного редагування фотографій",
+      "logo": "/logos/luminar.png"
     },
     {
       "id": "nanohabits",
@@ -59,11 +59,11 @@
       "logo": "/logos/nanohabits.png"
     },
     {
-      "id": "onlinefitness",
-      "name": "Online Fitness",
-      "shortDescription": "Досягайте своїх фітнес-цілей в будь-який зручний час",
-      "fullDescription": "Online Fitness пропонує широкий вибір онлайн-курсів, які підходять для будь-якого рівня підготовки: від легкої розминки, до інтенсивних тренувань",
-      "logo": "/logos/online-fitness.png"
+      "id": "librarius",
+      "name": "Librarius",
+      "shortDescription": "Найкраща пропозиція аудіо та електроних книжок в Україні",
+      "fullDescription": "Перший у світі український застосунок для читання електронних книжок у смартфоні як он-лайн, так і за відсутності підключення до інтернету",
+      "logo": "/logos/librarius.png"
     }
   ]
 }

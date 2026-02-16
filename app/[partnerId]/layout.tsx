@@ -10,6 +10,7 @@ import bizbankData from '@/data/partners/bizbank.json'
 import ideabankData from '@/data/partners/ideabank.json'
 import kredobankData from '@/data/partners/kredobank.json'
 import mtbbankData from '@/data/partners/mtbbank.json'
+import monobankData from '@/data/partners/monobank.json'
 import pravexbankData from '@/data/partners/pravexbank.json'
 import raiffeisenData from '@/data/partners/raiffeisen.json'
 import ukrsibbankData from '@/data/partners/ukrsibbank.json'
@@ -37,6 +38,7 @@ const partnerData: Record<string, PartnerConfig> = {
   ideabank: ideabankData as PartnerConfig,
   kredobank: kredobankData as PartnerConfig,
   mtbbank: mtbbankData as PartnerConfig,
+  monobank: monobankData as PartnerConfig,
   pravexbank: pravexbankData as PartnerConfig,
   raiffeisen: raiffeisenData as PartnerConfig,
   ukrsibbank: ukrsibbankData as PartnerConfig,
