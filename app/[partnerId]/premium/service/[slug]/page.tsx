@@ -96,7 +96,7 @@ export default function ServiceDetailPage() {
         <div className="space-y-2 mt-8">
           <h3 className="text-sm font-semibold text-muted-foreground">Як активувати</h3>
           <div className="space-y-2">
-            {['Натисніть кнопку "Отримати підписку"', 'Оберіть тариф та період', 'Підтвердіть оплату', 'Отримайте доступ до сервісу'].map((step, index) => (
+            {['Натисніть кнопку "Отримати підписку"', 'Зареєструйтесь або авторизуйтесь в сервісі', 'Доступ буде надано автоматично'].map((step, index) => (
               <div key={index} className="flex gap-2 items-start">
                 <div 
                   className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-semibold mt-0.5"
