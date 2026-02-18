@@ -30,6 +30,9 @@ import pivdenyData from '@/data/partners/pivdeny.json'
 import procreditData from '@/data/partners/procredit.json'
 import ukrgasbankData from '@/data/partners/ukrgasbank.json'
 import ukrnaftaData from '@/data/partners/ukrnafta.json'
+import euro5Data from '@/data/partners/euro5.json'
+import wogData from '@/data/partners/wog.json'
+import socarData from '@/data/partners/socar.json'
 import type { PartnerConfig } from '@/types/partner'
 
 const partnerData: Record<string, PartnerConfig> = {
@@ -58,6 +61,9 @@ const partnerData: Record<string, PartnerConfig> = {
   procreditGq5yYgC3YZ4Ia9DEYASj: procreditData as PartnerConfig,
   ukrgasbankROBET09LsZb9jfGl8iKZ: ukrgasbankData as PartnerConfig,
   ukrnaftasuBU1M0ZjqHz4SDllqWd: ukrnaftaData as PartnerConfig,
+  euro5lGeHvekNOwu2qiUWECuq: euro5Data as PartnerConfig,
+  wogCZSN8TQwQGVp4BadkAcr: wogData as PartnerConfig,
+  socaryvPHhEOSImu8r9PnAute: socarData as PartnerConfig
 }
 
 export default function PartnerLayout({
