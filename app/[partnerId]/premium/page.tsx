@@ -18,7 +18,16 @@ import {
   Globe,
   Wifi,
   ArrowLeftRight,
-  Gem
+  Gem,
+  ShoppingCart,
+  Store,
+  Receipt,
+  Tag,
+  Tags,
+  MapPin,
+  DiamondPercent,
+  Package,
+  BadgePercent
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -36,7 +45,16 @@ const iconMap: Record<string, LucideIcon> = {
   Phone,
   Globe,
   Shield,
-  Gem
+  Gem,
+  ShoppingCart,
+  Store,
+  Receipt,
+  Tag,
+  Tags,
+  MapPin,
+  DiamondPercent,
+  Package,
+  BadgePercent
 }
 
 export default function PremiumPromoPage() {

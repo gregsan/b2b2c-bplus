@@ -35,6 +35,8 @@ import wogData from '@/data/partners/wog.json'
 import socarData from '@/data/partners/socar.json'
 import altbankData from '@/data/partners/altbank.json'
 import radabankData from '@/data/partners/radabank.json'
+import varusData from '@/data/partners/varus.json'
+import ezooData from '@/data/partners/ezoo.json'
 import type { PartnerConfig } from '@/types/partner'
 
 const partnerData: Record<string, PartnerConfig> = {
@@ -67,7 +69,9 @@ const partnerData: Record<string, PartnerConfig> = {
   wogCZSN8TQwQGVp4BadkAcr: wogData as PartnerConfig,
   socaryvPHhEOSImu8r9PnAute: socarData as PartnerConfig,
   altbankVOgyKmgAmfPOflc6eS99: altbankData as PartnerConfig,
-  radabankqAI2jHmvFc9jokFAoe6B: radabankData as PartnerConfig
+  radabankqAI2jHmvFc9jokFAoe6B: radabankData as PartnerConfig,
+  varus: varusData as PartnerConfig,
+  ezoo: ezooData as PartnerConfig,
 
 }
 
