@@ -70,8 +70,8 @@ const partnerData: Record<string, PartnerConfig> = {
   socaryvPHhEOSImu8r9PnAute: socarData as PartnerConfig,
   altbankVOgyKmgAmfPOflc6eS99: altbankData as PartnerConfig,
   radabankqAI2jHmvFc9jokFAoe6B: radabankData as PartnerConfig,
-  varus: varusData as PartnerConfig,
-  ezoo: ezooData as PartnerConfig,
+  varusivNJnLxVqBBp07RW3BGp: varusData as PartnerConfig,
+  ezooCYfXtKYVuRHDVgRCZIV9: ezooData as PartnerConfig,
 
 }
 
