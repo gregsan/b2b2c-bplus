@@ -72,5 +72,47 @@
       "fullDescription": "Необмежений доступ до контенту Disney, Pixar, Marvel, Star Wars, National Geographic. До 4 одночасних трансляцій, завантаження для офлайн-перегляду.",
       "logo": "/logos/disney.svg"
     }
+  ],
+  "partnerOffers": [
+    {
+      "slug": "rozetka",
+      "name": "Rozetka",
+      "offer": "Кешбек 10%",
+      "type": "cashback",
+      "logo": "/partners/rozetka.png",
+      "description": "Отримуйте кешбек 10% при покупках в Rozetka з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
+    },
+    {
+      "slug": "comfy",
+      "name": "Comfy",
+      "offer": "Кешбек 8%",
+      "type": "cashback",
+      "logo": "/partners/comfy.png",
+      "description": "Отримуйте кешбек 8% при покупках в Comfy з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
+    },
+    {
+      "slug": "atb",
+      "name": "АТБ",
+      "offer": "Кешбек 12%",
+      "type": "cashback",
+      "logo": "/partners/atb.png",
+      "description": "Отримуйте кешбек 12% при покупках в АТБ з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
+    },
+    {
+      "slug": "varus",
+      "name": "Varus",
+      "offer": "Знижка 10%",
+      "type": "cashback",
+      "logo": "/partners/varus.png",
+      "description": "Отримуйте кешбек 12% при покупках в Varus з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
+    },
+    {
+      "slug": "apteka",
+      "name": "Аптека Низьких Цін",
+      "offer": "Знижка 20%",
+      "type": "discount",
+      "logo": "/partners/anc.png",
+      "description": "Отримуйте знижку 20% на всі товари в АНЦ з Premium підпискою. Знижка застосовується автоматично при оплаті карткою партнера."
+    }
   ]
 }

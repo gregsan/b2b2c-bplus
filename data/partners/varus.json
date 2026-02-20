@@ -58,5 +58,47 @@
       "fullDescription": "Online Fitness пропонує широкий вибір онлайн-курсів, які підходять для будь-якого рівня підготовки: від легкої розминки, до інтенсивних тренувань",
       "logo": "/logos/online-fitness.png"
     }
+  ],
+  "partnerOffers": [
+    {
+      "slug": "rozetka",
+      "name": "Rozetka",
+      "offer": "Кешбек 10%",
+      "type": "cashback",
+      "logo": "/partners/rozetka.png",
+      "description": "Отримуйте кешбек 10% при покупках в Rozetka з Varus Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
+    },
+    {
+      "slug": "comfy",
+      "name": "Comfy",
+      "offer": "Кешбек 8%",
+      "type": "cashback",
+      "logo": "/partners/comfy.png",
+      "description": "Отримуйте кешбек 8% при покупках в Comfy з Varus Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
+    },
+    {
+      "slug": "socar",
+      "name": "SOCAR",
+      "offer": "Знижка 2 грн/л пального",
+      "type": "discount",
+      "logo": "/partners/socar.png",
+      "description": "Отримуйте знижку 2 грн на кожен літр пального на АЗС мережі SOCAR з Premium підпискою. Знижка застосовується автоматично при оплаті карткою партнера"
+    },
+    {
+      "slug": "pumb",
+      "name": "PUMB",
+      "offer": "Додаткова категория кешбеку",
+      "type": "cashback",
+      "logo": "/partners/pumb.png",
+      "description": "Відкрийте додаткову категорію кешбеку виключно для користувачів з Premium підпискою."
+    },
+    {
+      "slug": "anc",
+      "name": "Моя Аптека",
+      "offer": "Знижка 20%",
+      "type": "discount",
+      "logo": "/partners/anc.png",
+      "description": "Отримуйте знижку 20% на всі товари в Моя Аптека з Varus Premium підпискою. Знижка застосовується автоматично при оплаті карткою партнера."
+    }
   ]
 }

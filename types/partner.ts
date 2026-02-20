@@ -12,6 +12,15 @@ export interface PartnerService {
   logo: string
 }
 
+export interface PartnerOffer {
+  slug: string
+  name: string
+  offer: string
+  type: string
+  logo: string
+  description: string
+}
+
 export interface PartnerConfig {
   id: string
   type: 'bank' | 'operator' | 'gas-station' | 'retail-food' | 'retail-zoo'
@@ -21,4 +30,5 @@ export interface PartnerConfig {
   colorScheme: string
   benefits: PartnerBenefit[]
   services: PartnerService[]
+  partnerOffers: PartnerOffer[]
 }
