@@ -22,7 +22,7 @@ export default function PremiumActivatedPage() {
   const params = useParams()
   const { partner, isPremium } = usePartner()
   const [selectedTab, setSelectedTab] = useState('benefits')
-  const tabs = ['benefits', 'services', 'travel', 'insurance', 'partners']
+  
 
   const partnerId = params?.partnerId as string
 
@@ -44,6 +44,13 @@ export default function PremiumActivatedPage() {
     if (!partner) return null
     if (!isPremium) return null
 
+  const tabs = [
+    'benefits',
+    'services',
+    ...(partner.type !== 'retail-zoo' ? ['travel'] : []),
+    'insurance',
+    'partners'
+  ]
 
   return (
     <div className="h-full flex flex-col overflow-hidden" style={{ backgroundColor: 'var(--color-page-bg, #FAFAFA)' }}>
@@ -103,13 +110,15 @@ export default function PremiumActivatedPage() {
               >
                 Сервіси
               </TabsTrigger>
-              <TabsTrigger 
-                value="travel" 
-                className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-current px-6 py-3 min-w-[120px]"
-                style={{ color: selectedTab === 'travel' ? 'var(--color-accent, #FACE00)' : 'inherit' }}
-              >
-                Подорожі
-              </TabsTrigger>
+              {partner.type !== 'retail-zoo' && (
+                <TabsTrigger 
+                  value="travel" 
+                  className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-current px-6 py-3 min-w-[120px]"
+                  style={{ color: selectedTab === 'travel' ? 'var(--color-accent)' : 'inherit' }}
+                >
+                  Подорожі
+                </TabsTrigger>
+              )}
               <TabsTrigger 
                 value="insurance" 
                 className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-current px-6 py-3 min-w-[120px]"
@@ -190,9 +199,11 @@ export default function PremiumActivatedPage() {
             ))}
           </TabsContent>
 
-          <TabsContent value="travel" className="mt-0 p-6">
-            <TravelTab />
-          </TabsContent>
+          {partner.type !== 'retail-zoo' && (
+            <TabsContent value="travel" className="mt-0 p-6">
+              <TravelTab />
+            </TabsContent>
+          )}
 
           <TabsContent value="insurance" className="mt-0 p-6">
             <InsuranceTab />

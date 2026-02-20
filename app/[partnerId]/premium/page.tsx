@@ -172,24 +172,27 @@ export default function PremiumPromoPage() {
 
               {/* Статичні пункти */}
               {[
-                'Знижки на бронювання готелів до 15%',
+                partner.type !== 'retail-zoo' ? 'Знижки на бронювання готелів до 15%' : null,
                 getInsuranceSummary(partner.type),
                 'Cashback до 15% від партнерів',
-              ].map((feature, index) => (
-                <motion.div
-                  key={`static-${index}`}
-                  variants={staggerItem}
-                  className="flex items-start gap-3"
-                >
-                  <div 
-                    className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                    style={{ backgroundColor: 'var(--color-accent)' }}
+              ]
+                .filter(Boolean)
+                .map((feature, index) => (
+                  <motion.div
+                    key={`static-${index}`}
+                    variants={staggerItem}
+                    className="flex items-start gap-3"
                   >
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-foreground font-medium leading-relaxed">{feature}</p>
-                </motion.div>
-              ))}
+                    <div 
+                      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ backgroundColor: 'var(--color-accent)' }}
+                    >
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <p className="text-foreground font-medium leading-relaxed">{feature}</p>
+                  </motion.div>
+                ))}
+
             </motion.div>
           </div>
 
@@ -297,34 +300,37 @@ export default function PremiumPromoPage() {
             </div>
 
             {/* Travel */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <Plane className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
-                <h2 className="text-xl font-bold">Бронювання подорожей</h2>
+            {partner.type !== 'retail-zoo' && (
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Plane className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+                  <h2 className="text-xl font-bold">Бронювання подорожей</h2>
+                </div>
+                <Card 
+                  className="p-4 border-[1px]"
+                  style={{ 
+                    backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+                    border: '1px solid rgba(229, 229, 229, 0.2)'
+                  }}
+                >
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                      <span>Бронюйте готелі зі знижками до 15%</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                      <span>Ексклюзивні пропозиції від партнерів</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                      <span>Безкоштовна підтримка 24/7</span>
+                    </li>
+                  </ul>
+                </Card>
               </div>
-              <Card 
-                className="p-4 border-[1px]"
-                style={{ 
-                  backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-                  border: '1px solid rgba(229, 229, 229, 0.2)'
-                }}
-              >
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Бронюйте готелі зі знижками до 15%</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Ексклюзивні пропозиції від партнерів</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Безкоштовна підтримка 24/7</span>
-                  </li>
-                </ul>
-              </Card>
-            </div>
+            )}
+
 
             {/* Insurance */}
             <div className="space-y-4">
