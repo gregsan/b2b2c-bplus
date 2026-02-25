@@ -2,7 +2,6 @@ import type { PartnerConfig } from '@/types/partner'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Sparkles } from 'lucide-react'
 
-// SVG "3D куля" як у Klarna/Revolut
 function GlowOrb({ color }: { color: string }) {
   return (
     <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -43,7 +42,7 @@ export function PromoHero({ partner }: { partner: PartnerConfig }) {
         }}
       />
 
-      {/* Сітка як у Revolut */}
+      {/* Сітка */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
@@ -80,7 +79,7 @@ export function PromoHero({ partner }: { partner: PartnerConfig }) {
           </p>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="flex flex-col items-start gap-2">
             <Button
               size="lg"
               className="h-14 px-10 text-base font-semibold rounded-full gap-2 text-black"
@@ -89,10 +88,9 @@ export function PromoHero({ partner }: { partner: PartnerConfig }) {
               Спробувати зараз
               <ArrowRight size={18} />
             </Button>
-            <div className="flex flex-col justify-center">
-              <p className="text-white/30 text-sm">Скасувати можна в будь-який момент</p>
-            </div>
+            <p className="text-white/30 text-sm">Скасувати можна в будь-який момент</p>
           </div>
+
         </div>
 
         {/* Права колонка — 3D куля */}
