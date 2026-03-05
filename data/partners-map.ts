@@ -32,6 +32,7 @@ import altbankData from '@/data/partners/altbank.json';
 import radabankData from '@/data/partners/radabank.json';
 import varusData from '@/data/partners/varus.json';
 import ezooData from '@/data/partners/ezoo.json';
+import upgData from "@/data/partners/upg.json"
 
 export const partnerData: Record<string, PartnerConfig> = {
   abanknEmpL7jHwhhYj7oGQy8H: abankData as PartnerConfig,
@@ -66,4 +67,5 @@ export const partnerData: Record<string, PartnerConfig> = {
   radabankqAI2jHmvFc9jokFAoe6B: radabankData as PartnerConfig,
   varusivNJnLxVqBBp07RW3BGp: varusData as PartnerConfig,
   ezooCYfXtKYVuRHDVgRCZIV9: ezooData as PartnerConfig,
+  upgUqxXv2NHy8ddr4hbErH9: upgData as PartnerConfig,
 }
