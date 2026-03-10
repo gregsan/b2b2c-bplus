@@ -51,17 +51,17 @@ export function HomePharmacyTemplate() {
                 <p className="text-sm text-muted-foreground">Картка лояльності</p>
                 <h3 className="text-2xl font-bold">Health Club</h3>
                 <p className="text-lg font-semibold mt-1" style={{ color: 'var(--color-accent)' }}>
-                  Кешбек 5%
+                  Кешбек 2%
                 </p>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Кешбек на ліки</span>
-                  <span className="font-semibold">5%</span>
+                  <span className="font-semibold">2%</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Знижка на вітаміни та БАДи</span>
-                  <span className="font-semibold">10%</span>
+                  <span className="font-semibold">5%</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Знижка на медтехніку</span>
