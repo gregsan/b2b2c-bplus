@@ -33,7 +33,11 @@ import radabankData from '@/data/partners/radabank.json';
 import varusData from '@/data/partners/varus.json';
 import ezooData from '@/data/partners/ezoo.json';
 import upgData from "@/data/partners/upg.json";
-import ancData from "@/data/partners/anc.json"
+import ancData from "@/data/partners/anc.json";
+import podorojnikData from "@/data/partners/podorojnik.json";
+import apteka911Data from "@/data/partners/apteka911.json";
+import aptekaDobrogoDnyaData from "@/data/partners/aptekadobrogodnya.json";
+
 
 
 export const partnerData: Record<string, PartnerConfig> = {
@@ -71,5 +75,7 @@ export const partnerData: Record<string, PartnerConfig> = {
   ezooCYfXtKYVuRHDVgRCZIV9: ezooData as PartnerConfig,
   upgUqxXv2NHy8ddr4hbErH9: upgData as PartnerConfig,
   ancLLRSR2aCdjgTJYqoZgEW: ancData as PartnerConfig,
-
+  podorojnikp0Kw62ipBdLgtEOZb3GI: podorojnikData as PartnerConfig,
+  apteka911zruAIsnu5jxGZBNZmV3A: apteka911Data as PartnerConfig,
+  aptekaDDoRQQ2Fev6fFpVQqCFPFV: aptekaDobrogoDnyaData as PartnerConfig,
 }
