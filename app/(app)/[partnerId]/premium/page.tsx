@@ -27,7 +27,9 @@ import {
   MapPin,
   DiamondPercent,
   Package,
-  BadgePercent
+  BadgePercent,
+  Pill,
+  HeartPulse
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -54,7 +56,9 @@ const iconMap: Record<string, LucideIcon> = {
   MapPin,
   DiamondPercent,
   Package,
-  BadgePercent
+  BadgePercent,
+  Pill,
+  HeartPulse,
 }
 
 export default function PremiumPromoPage() {
@@ -172,7 +176,7 @@ export default function PremiumPromoPage() {
 
               {/* Статичні пункти */}
               {[
-                partner.type !== 'retail-zoo' ? 'Знижки на бронювання готелів до 15%' : null,
+                partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' ? 'Знижки на бронювання готелів до 15%' : null,
                 getInsuranceSummary(partner.type),
                 'Cashback до 15% від партнерів',
               ]
@@ -300,7 +304,7 @@ export default function PremiumPromoPage() {
             </div>
 
             {/* Travel */}
-            {partner.type !== 'retail-zoo' && (
+            {!['retail-zoo', 'pharmacy'].includes(partner.type) && (
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Plane className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />

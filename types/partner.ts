@@ -23,7 +23,7 @@ export interface PartnerOffer {
 
 export interface PartnerConfig {
   id: string
-  type: 'bank' | 'operator' | 'gas-station' | 'retail-food' | 'retail-zoo'
+  type: 'bank' | 'operator' | 'gas-station' | 'retail-food' | 'retail-zoo' | 'pharmacy'
   name: string
   subscriptionName: string
   subscriptionPrice: string

@@ -5,7 +5,8 @@ import { HomeBankTemplate } from '@/components/home-bank'
 import { HomeOperatorTemplate } from '@/components/home-operator'
 import { HomeGasStationTemplate } from '@/components/home-gas-station'
 import { HomeRetailFoodTemplate } from '@/components/home-retail-food'
-import { HomeRetailZooTemplate } from '@/components/home-retail-zoo' 
+import { HomeRetailZooTemplate } from '@/components/home-retail-zoo'
+import { HomePharmacyTemplate } from '@/components/home-pharmacy'
 import { BottomNav } from '@/components/bottom-nav'
 
 export default function HomePage() {
@@ -27,6 +28,8 @@ export default function HomePage() {
         return <HomeRetailFoodTemplate />
       case 'retail-zoo':
         return <HomeRetailZooTemplate />
+      case 'pharmacy':
+        return <HomePharmacyTemplate />
       default:
         return <HomeBankTemplate />
     }

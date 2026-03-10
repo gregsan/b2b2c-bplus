@@ -110,7 +110,7 @@ export default function PremiumActivatedPage() {
               >
                 Сервіси
               </TabsTrigger>
-              {partner.type !== 'retail-zoo' && (
+              {partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' &&(
                 <TabsTrigger 
                   value="travel" 
                   className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-current px-6 py-3 min-w-[120px]"
@@ -199,7 +199,7 @@ export default function PremiumActivatedPage() {
             ))}
           </TabsContent>
 
-          {partner.type !== 'retail-zoo' && (
+          {partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' && (
             <TabsContent value="travel" className="mt-0 p-6">
               <TravelTab />
             </TabsContent>

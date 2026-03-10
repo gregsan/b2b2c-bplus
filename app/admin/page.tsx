@@ -18,6 +18,7 @@ const typeLabels: Record<string, string> = {
   'gas-station': '⛽️ АЗС',
   'retail-food': '🛒 Продуктовий рітейл',
   'retail-zoo':  '🐾 Зоомагазини',
+  'pharmacy': '💊 Аптеки',
   other:         '📦 Інше',
 }
 
