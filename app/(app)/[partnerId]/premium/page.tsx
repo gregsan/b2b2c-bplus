@@ -178,7 +178,7 @@ export default function PremiumPromoPage() {
               {[
                 partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' ? 'Знижки на бронювання готелів до 15%' : null,
                 getInsuranceSummary(partner.type),
-                'Cashback до 15% від партнерів',
+                'Знижки на пальне',
               ]
                 .filter(Boolean)
                 .map((feature, index) => (

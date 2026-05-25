@@ -101,7 +101,8 @@ export function getInsuranceShortList(type: string): string[] {
 export function getInsuranceSummary(type: string): string {
   switch (type) {
     case 'bank':
-      return 'Страхування подорожей, заходів і домашніх улюбленців'
+        return 'Страхування від шахраїв та від нещасного випадку'
+      /* return 'Страхування подорожей, заходів і домашніх улюбленців' */
     case 'operator':
       return 'Страхування телефону, кібербезпека та захист даних'
     case 'gas-station':
