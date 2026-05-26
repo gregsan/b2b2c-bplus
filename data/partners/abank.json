@@ -3,7 +3,7 @@
   "type": "bank",
   "name": "A Bank",
   "subscriptionName": "A Bank Premium",
-  "subscriptionPrice": "₴179",
+  "subscriptionPrice": "₴249",
   "colorScheme": "green",
   "benefits": [
     {
@@ -24,11 +24,11 @@
   ],
   "services": [
     {
-      "id": "kstv",
-      "name": "КиївстарТБ",
-      "shortDescription": "Кіно, мультики, серіали та шоу українською мовою",
-      "fullDescription": "Платформа кіно та телебачення з контентом від українських та зарубіжних студій і телеканалів у HD якості",
-      "logo": "/logos/kstv.png"
+      "id": "megogo",
+      "name": "Megogo (Легка)",
+      "shortDescription": "Дивіться ТБ онлайн, спорт та нові фільми. Серіали та мультфільми без інтернету",
+      "fullDescription": "Медіасервіс, де ти зможеш знайти контент на свій смак. Кіно, спорт, онлайн-телебачення, освіта, подкасти, аудіокнижки та мультфільми. Один акаунт — різні профілі для родини. Вмикай добре, вмикай своє!",
+      "logo": "/logos/megogo.png"
     },
     {
       "id": "gramaro",
@@ -38,11 +38,11 @@
       "logo": "/logos/gramaro.png"
     },
     {
-      "id": "VPNUnlimited",
-      "name": "VPN Unlimited",
-      "shortDescription": "Найкращий приватний та безпечний VPN",
-      "fullDescription": "Насолоджуйтесь неперевершеною безпекою та абсолютною свободою в інтернеті на своєму пристрої з будь-якої точки світу",
-      "logo": "/logos/vpn-unlim.png"
+      "id": "onlinefitness",
+      "name": "Online Fitness",
+      "shortDescription": "Досягайте своїх фітнес-цілей в будь-який зручний час",
+      "fullDescription": "Online Fitness пропонує широкий вибір онлайн-курсів, які підходять для будь-якого рівня підготовки: від легкої розминки, до інтенсивних тренувань",
+      "logo": "/logos/online-fitness.png"
     },
     {
       "id": "chatmnd",
@@ -52,53 +52,42 @@
       "logo": "/logos/chatmind.png"
     },
     {
-      "id": "onlinefitness",
-      "name": "Online Fitness",
-      "shortDescription": "Досягайте своїх фітнес-цілей в будь-який зручний час",
-      "fullDescription": "Online Fitness пропонує широкий вибір онлайн-курсів, які підходять для будь-якого рівня підготовки: від легкої розминки, до інтенсивних тренувань",
-      "logo": "/logos/online-fitness.png"
+      "id": "librarius",
+      "name": "Librarius",
+      "shortDescription": "Найкраща пропозиція аудіо та електронних книжок в Україні.",
+      "fullDescription": "Перший у світі український застосунок для читання електронних книжок у смартфоні як он-лайн, так і за відсутності підключення до інтернету",
+      "logo": "/logos/librarius.png"
+    },
+    {
+      "id": "VPNUnlimited",
+      "name": "VPN Unlimited",
+      "shortDescription": "Найкращий приватний та безпечний VPN",
+      "fullDescription": "Насолоджуйтесь неперевершеною безпекою та абсолютною свободою в інтернеті на своєму пристрої з будь-якої точки світу",
+      "logo": "/logos/vpn-unlim.png"
+    },
+    {
+      "id": "nanhabits",
+      "name": "NanoHabits",
+      "shortDescription": "Науково обґрунтовані звички та коучінг з ШІ",
+      "fullDescription": "Покращуйте кожен аспект свого життя — здоров’я, розум, стосунки, роботу та спосіб життя — за допомогою найбільшої у світі бібліотеки науково підтверджених звичок і власного тренера на основі ШІ",
+      "logo": "/logos/nanohabits.png"
+    },
+    {
+      "id": "reface",
+      "name": "Reface",
+      "shortDescription": "Створюйте AI зображення, аватари, анімуйте фото та змінюйте обличчя у відео!",
+      "fullDescription": "Станьте схожими на кого завгодно, вставивши своє обличчя на будь-які фото, або анімуйте фото та оживіть зображення!",
+      "logo": "/logos/reface.png"
     }
   ],
   "partnerOffers": [
     {
-      "slug": "rozetka",
-      "name": "Rozetka",
-      "offer": "Кешбек 10%",
-      "type": "cashback",
-      "logo": "/partners/rozetka.png",
-      "description": "Отримуйте кешбек 10% при покупках в Rozetka з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
-    },
-    {
-      "slug": "comfy",
-      "name": "Comfy",
-      "offer": "Кешбек 8%",
-      "type": "cashback",
-      "logo": "/partners/comfy.png",
-      "description": "Отримуйте кешбек 8% при покупках в Comfy з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
-    },
-    {
-      "slug": "atb",
-      "name": "АТБ",
-      "offer": "Кешбек 12%",
-      "type": "cashback",
-      "logo": "/partners/atb.png",
-      "description": "Отримуйте кешбек 12% при покупках в АТБ з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
-    },
-    {
-      "slug": "varus",
-      "name": "Varus",
-      "offer": "Знижка 10%",
-      "type": "cashback",
-      "logo": "/partners/varus.png",
-      "description": "Отримуйте кешбек 12% при покупках в Varus з Premium підпискою. Бонуси автоматично нараховуються на ваш рахунок протягом 24 годин після покупки."
-    },
-    {
-      "slug": "apteka",
-      "name": "Аптека Низьких Цін",
-      "offer": "Знижка 20%",
+      "slug": "wog",
+      "name": "WOG",
+      "offer": "Знижка на пальне",
       "type": "discount",
-      "logo": "/partners/anc.png",
-      "description": "Отримуйте знижку 20% на всі товари в АНЦ з Premium підпискою. Знижка застосовується автоматично при оплаті карткою партнера."
+      "logo": "/partners/wog.png",
+      "description": "Отримуйте -4 грн на кожному літрі бензину та -2грн на кожному літрі газу без обмежень по літражу на всіх АЗС мережі WOG."
     }
   ]
 }
