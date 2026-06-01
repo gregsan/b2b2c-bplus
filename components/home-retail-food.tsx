@@ -57,14 +57,16 @@ export function HomeRetailFoodTemplate() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Кешбек на всі товари</span>
-                  <span className="font-semibold">5%</span>
+                  <span className="font-semibold">3%</span>
                 </div>
+                {/*
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-muted-foreground">Знижка на власну марку</span>
                   <span className="font-semibold">10%</span>
                 </div>
+                */}
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">Безкоштовна доставка</span>
+                  <span className="text-muted-foreground">3 безкоштовні доставки</span>
                   <span className="font-semibold">від ₴500</span>
                 </div>
               </div>
