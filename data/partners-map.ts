@@ -37,8 +37,9 @@ import ancData from "@/data/partners/anc.json";
 import podorojnikData from "@/data/partners/podorojnik.json";
 import apteka911Data from "@/data/partners/apteka911.json";
 import aptekaDobrogoDnyaData from "@/data/partners/aptekadobrogodnya.json";
-import okkoData from "@/data/partners/okko.json"
-import comfyData from "@/data/partners/comfy.json"
+import okkoData from "@/data/partners/okko.json";
+import comfyData from "@/data/partners/comfy.json";
+import vodafoneData from "@/data/partners/vodafone.json";
 
 
 
@@ -82,4 +83,5 @@ export const partnerData: Record<string, PartnerConfig> = {
   aptekaDDoRQQ2Fev6fFpVQqCFPFV: aptekaDobrogoDnyaData as PartnerConfig,
   okkoeaHjgEXoW7ETnOTnbwB7T1VQVsrHq5zX: okkoData as PartnerConfig,
   comfyHoAy9EhL6cZ9ImqOGsbc: comfyData as PartnerConfig,
+  vodafoneboHcWPwhsBDcgTEaEABw: vodafoneData as PartnerConfig,
 }
