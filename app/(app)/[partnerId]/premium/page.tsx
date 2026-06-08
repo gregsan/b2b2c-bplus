@@ -29,7 +29,10 @@ import {
   Package,
   BadgePercent,
   Pill,
-  HeartPulse
+  HeartPulse,
+  LayoutGrid,
+  Gift,
+  RefreshCw
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -117,22 +120,64 @@ export default function PremiumPromoPage() {
         <div className="px-6 py-6 space-y-6">
           
           {/* Hero section */}
-          <Card className="p-8 bg-card border-[1px] border-border/20 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
-            <div className="text-center space-y-3">
-              <Crown className="w-16 h-16 mx-auto" style={{ color: 'var(--color-accent, #FACE00)' }} />
-              <p className="text-sm text-muted-foreground font-semibold">{partner.subscriptionName}</p>
-              <div className="flex items-baseline justify-center gap-2">
-                <span className="text-5xl font-bold" style={{ color: 'var(--color-accent, #0E0C00)' }}>
-                  {partner.subscriptionPrice}
-                </span>
-                <span className="text-xl text-muted-foreground">/місяць</span>
+          <Card className="overflow-hidden border-[1px] border-border/20 shadow-[0_1px_2px_rgba(0,0,0,0.05)] bg-card">
+            <div className="relative p-6 min-h-[170px] flex flex-col justify-between">
+              {/* Декоративні круги справа */}
+              <div
+                className="absolute -right-10 -top-10 w-44 h-44 rounded-full opacity-15"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+              />
+              <div
+                className="absolute right-5 top-9 w-24 h-24 rounded-full opacity-10"
+                style={{ backgroundColor: 'var(--color-accent)' }}
+              />
+
+              {/* Контент */}
+              <div className="relative z-10 space-y-4">
+                <div className="space-y-1">
+                  <p
+                    className="text-sm font-semibold tracking-wide uppercase"
+                    style={{ color: 'var(--color-text-secondary, #6B6B6B)' }}
+                  >
+                    Преміум підписка
+                  </p>
+
+                  <p
+                    className="text-3xl font-bold leading-tight"
+                    style={{ color: 'var(--color-text-primary, #1A1A1A)' }}
+                  >
+                    {partner.subscriptionName}
+                  </p>
+                </div>
+
+                <div className="flex items-baseline gap-2">
+                  <span
+                    className="text-4xl font-bold leading-none"
+                    style={{ color: 'var(--color-accent)' }}
+                  >
+                    {partner.subscriptionPrice}
+                  </span>
+                  <span
+                    className="text-sm font-medium"
+                    style={{ color: 'var(--color-text-secondary, #6B6B6B)' }}
+                  >
+                    /місяць
+                  </span>
+                </div>
+
+                <p
+                  className="text-xs"
+                  style={{ color: 'var(--color-text-secondary, #6B6B6B)' }}
+                >
+                  Перший місяць — 1 грн, потім стандартна вартість тарифу
+                </p>
               </div>
             </div>
           </Card>
 
           {/* Features */}
           <div className="space-y-3">
-            <h2 className="text-xl font-bold">Що входить в {partner.subscriptionName}</h2>
+            <h2 className="text-xl font-bold">До {partner.subscriptionName} включено</h2>
             <motion.div
               className="space-y-3"
               variants={staggerContainer}
@@ -158,28 +203,21 @@ export default function PremiumPromoPage() {
                 </motion.div>
               ))}
 
-              {/* Сервіси (один пункт з переліком) */}
-              <motion.div
-                variants={staggerItem}
-                className="flex items-start gap-3"
-              >
-                <div 
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ backgroundColor: 'var(--color-accent)' }}
-                >
-                  <Check className="w-4 h-4 text-white" />
-                </div>
-                <p className="text-foreground font-medium leading-relaxed">
-                  Доступ до преміум-сервісів ({partner.services.map(s => s.name).join(', ')})
-                </p>
-              </motion.div>
-
               {/* Статичні пункти */}
               {[
-                partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' && partner.type !== 'operator' ? 'Знижки на бронювання готелів до 15%' : null,
-                getInsuranceSummary(partner.type),
-                'Знижки на пальне',
-              ]
+                 partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' && partner.type !== 'operator'
+                    ? 'Знижки на бронювання готелів до 15%'
+                    : null,
+                  getInsuranceSummary(partner.type),
+                  partner.partnerOffers && partner.partnerOffers.length > 0
+                    ? partner.partnerOffers.length > 1
+                      ? `${partner.partnerOffers[0].offer} та ще ${partner.partnerOffers.length - 1} пропозиці${
+                          partner.partnerOffers.length - 1 === 1 ? 'я' :
+                          partner.partnerOffers.length - 1 < 5 ? 'ї' : 'й'
+                        }`
+                      : partner.partnerOffers[0].offer
+                    : 'Знижки від партнерів',
+                ]
                 .filter(Boolean)
                 .map((feature, index) => (
                   <motion.div
@@ -197,8 +235,45 @@ export default function PremiumPromoPage() {
                   </motion.div>
                 ))}
 
-            </motion.div>
-          </div>
+                {/* Сервіси (один пункт з переліком) */}
+                    <motion.div
+                      variants={staggerItem}
+                      className="flex items-start gap-3"
+                    >
+                      <div
+                        className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                        style={{ backgroundColor: 'var(--color-accent)' }}
+                      >
+                        <Check className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <p className="text-foreground font-medium leading-relaxed">
+                          Premium-підписки на {partner.services.length} digital-сервісів
+                        </p>
+                        {/* Стек логотипів з "наповзанням" */}
+                        <div className="flex items-center">
+                          {partner.services.map((service, index) => (
+                            <div
+                              key={service.id}
+                              className="w-10 h-10 rounded-full bg-white overflow-hidden flex items-center justify-center border-2 border-card shadow-sm -ml-2 first:ml-0"
+                              style={{ zIndex: partner.services.length - index }}
+                            >
+                              {service.logo ? (
+                                <img
+                                  src={service.logo}
+                                  alt={service.name}
+                                  className="w-full h-full object-contain"
+                                />
+                              ) : (
+                                <ServiceIcon service={service.id} size={20} />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </div>
 
           {/* CTA Buttons */}
           <div className="space-y-3 pb-24">
@@ -211,14 +286,14 @@ export default function PremiumPromoPage() {
               }}
             >
               <Crown className="w-5 h-5 mr-2" />
-              Активувати Premium
+              Активувати {partner.subscriptionName}
             </Button>
             <Button 
               onClick={scrollToDetails}
               variant="outline"
               className="w-full h-12 text-lg font-semibold bg-transparent"
             >
-              Детальніше про Premium
+              Детальніше про {partner.subscriptionName}
             </Button>
           </div>
 
@@ -226,7 +301,10 @@ export default function PremiumPromoPage() {
           <div id="details-section" className="space-y-8 pt-8">
             {/* Benefits */}
             <div className="space-y-4">
-              <h2 className="text-xl font-bold">Переваги від {partner.name}</h2>
+              <div className="flex items-center gap-3">
+                <Gift className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+                <h2 className="text-xl font-bold">Переваги від {partner.name}</h2>
+              </div>
               <div className="space-y-3">
                 {partner.benefits.map((benefit, index) => {
                   const IconComponent = iconMap[benefit.icon] || Shield
@@ -264,7 +342,10 @@ export default function PremiumPromoPage() {
 
             {/* Services */}
             <div className="space-y-4">
-              <h2 className="text-xl font-bold">Цифрові сервіси</h2>
+              <div className="flex items-center gap-3">
+                <LayoutGrid className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+                <h2 className="text-xl font-bold">Підписки на цифрові сервиси</h2>
+              </div>
               <div className="space-y-3">
                 {partner.services.map((service) => (
                   <Card 
@@ -282,7 +363,7 @@ export default function PremiumPromoPage() {
                     <div className="flex items-center gap-4">
                       <div className="flex justify-center">
                         {service.logo ? (
-                          <div className="w-[80px] h-[80px] rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-2">
+                          <div className="w-[60px] h-[60px] rounded-2xl overflow-hidden bg-white shadow-sm flex items-center justify-center p-2">
                             <img 
                               src={service.logo} 
                               alt={service.name} 
@@ -375,15 +456,11 @@ export default function PremiumPromoPage() {
               >
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Кешбек до 15% у популярних магазинах</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <Crown className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
                     <span>Ексклюзивні знижки від партнерів</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
+                    <RefreshCw className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
                     <span>Щомісячні оновлення пропозицій</span>
                   </li>
                 </ul>
