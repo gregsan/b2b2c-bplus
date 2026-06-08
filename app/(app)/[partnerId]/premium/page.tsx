@@ -176,7 +176,7 @@ export default function PremiumPromoPage() {
 
               {/* Статичні пункти */}
               {[
-                partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' ? 'Знижки на бронювання готелів до 15%' : null,
+                partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' && partner.type !== 'operator' ? 'Знижки на бронювання готелів до 15%' : null,
                 getInsuranceSummary(partner.type),
                 'Знижки на пальне',
               ]
@@ -304,7 +304,7 @@ export default function PremiumPromoPage() {
             </div>
 
             {/* Travel */}
-            {!['retail-zoo', 'pharmacy'].includes(partner.type) && (
+            {!['retail-zoo', 'pharmacy', 'operator'].includes(partner.type) && (
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Plane className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />

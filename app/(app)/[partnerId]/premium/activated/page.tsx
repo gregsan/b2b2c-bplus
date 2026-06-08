@@ -47,7 +47,7 @@ export default function PremiumActivatedPage() {
   const tabs = [
     'benefits',
     'services',
-    ...(partner.type !== 'retail-zoo' ? ['travel'] : []),
+    ...(partner.type !== 'retail-zoo' && partner.type !== 'operator' ? ['travel'] : []),
     'insurance',
     'partners'
   ]
@@ -110,7 +110,7 @@ export default function PremiumActivatedPage() {
               >
                 Сервіси
               </TabsTrigger>
-              {partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' &&(
+              {partner.type !== 'retail-zoo' && partner.type !== 'pharmacy' && partner.type !== 'operator' &&(
                 <TabsTrigger 
                   value="travel" 
                   className="flex-shrink-0 rounded-none border-b-2 border-transparent data-[state=active]:border-current px-6 py-3 min-w-[120px]"
