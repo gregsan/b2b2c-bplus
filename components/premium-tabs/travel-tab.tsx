@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter, useParams } from 'next/navigation'
-import { List, Map, Calendar, Users } from 'lucide-react'
+import { List, Map, Calendar, Users, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -16,34 +16,56 @@ export function TravelTab() {
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list')
   const [destination, setDestination] = useState('all')
 
-  const filteredHotels = destination === 'all' 
-    ? hotels 
+  const filteredHotels = destination === 'all'
+    ? hotels
     : hotels.filter(h => h.city === destination)
 
   return (
     <div className="space-y-4">
+
+      {/* Заголовок секції — як в інших табах */}
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold">Бронювання готелів</h2>
-        <div className="flex gap-2">
-          <Button
-            variant={viewMode === 'list' ? 'default' : 'outline'}
-            size="sm"
+        <div className="flex items-center gap-3">
+          <MapPin className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
+          <h2 className="text-xl font-bold">Бронювання готелів</h2>
+        </div>
+
+        {/* Перемикач вид — список / карта */}
+        <div
+          className="flex rounded-lg overflow-hidden border"
+          style={{ borderColor: 'var(--color-border, #E5E5E5)' }}
+        >
+          <button
             onClick={() => setViewMode('list')}
+            className="p-2 transition-colors"
+            style={{
+              backgroundColor: viewMode === 'list' ? 'var(--color-accent)' : 'var(--color-card-bg, #F7F7F9)',
+              color: viewMode === 'list' ? 'var(--color-dark, #0E0C00)' : 'var(--color-text-secondary, #6B6B6B)',
+            }}
           >
             <List className="w-4 h-4" />
-          </Button>
-          <Button
-            variant={viewMode === 'map' ? 'default' : 'outline'}
-            size="sm"
+          </button>
+          <button
             onClick={() => setViewMode('map')}
+            className="p-2 transition-colors"
+            style={{
+              backgroundColor: viewMode === 'map' ? 'var(--color-accent)' : 'var(--color-card-bg, #F7F7F9)',
+              color: viewMode === 'map' ? 'var(--color-dark, #0E0C00)' : 'var(--color-text-secondary, #6B6B6B)',
+            }}
           >
             <Map className="w-4 h-4" />
-          </Button>
+          </button>
         </div>
       </div>
 
-      {/* Search Form */}
-      <Card className="p-4 space-y-3 border-[1px]" style={{ backgroundColor: 'var(--color-card-bg, #F7F7F9)' }}>
+      {/* Форма пошуку */}
+      <Card
+        className="p-4 space-y-3 border-[1px]"
+        style={{
+          backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+          border: '1px solid rgba(229, 229, 229, 0.2)',
+        }}
+      >
         <div className="space-y-2">
           <label className="text-sm font-medium">Напрямок</label>
           <Select value={destination} onValueChange={setDestination}>
@@ -86,49 +108,71 @@ export function TravelTab() {
           </div>
         </div>
 
-        <Button className="w-full" style={{ backgroundColor: 'var(--color-accent, #FACE00)', color: 'var(--color-dark, #0E0C00)' }}>
+        <Button
+          className="w-full h-11 font-semibold"
+          style={{
+            backgroundColor: 'var(--color-accent, #FACE00)',
+            color: 'var(--color-dark, #0E0C00)',
+          }}
+        >
           Знайти готелі
         </Button>
       </Card>
 
-      {/* My Bookings Link */}
+      {/* Мої бронювання */}
       <Button
         variant="outline"
-        className="w-full bg-transparent"
+        className="w-full h-11 bg-transparent font-semibold"
+        style={{
+          borderColor: 'var(--color-accent)',
+          color: 'var(--color-text-primary, #1A1A1A)',
+        }}
         onClick={() => router.push(`/${partnerId}/premium/travel/bookings`)}
       >
         Мої бронювання
       </Button>
 
-      {/* Hotel List */}
+      {/* Список готелів */}
       {viewMode === 'list' && (
         <div className="space-y-3">
           {filteredHotels.slice(0, 6).map((hotel) => (
             <Card
               key={hotel.id}
               className="overflow-hidden cursor-pointer hover:bg-muted/50 transition-colors border-[1px]"
-              style={{ backgroundColor: 'var(--color-card-bg, #F7F7F9)' }}
+              style={{
+                backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+                border: '1px solid rgba(229, 229, 229, 0.2)',
+              }}
               onClick={() => router.push(`/${partnerId}/premium/travel/hotel/${hotel.id}`)}
             >
-              <div className="relative">
-               <img
-                  src={hotel.image}
-                  alt={hotel.name}
-                  className="w-full h-32 object-cover"
-                />
-              </div>
+              <img
+                src={hotel.image}
+                alt={hotel.name}
+                className="w-full h-32 object-cover"
+              />
               <div className="p-4 space-y-2">
                 <h3 className="font-semibold">{hotel.name}</h3>
                 <p className="text-sm text-muted-foreground">{hotel.location}</p>
                 <div className="flex items-center gap-1">
                   <span className="text-yellow-500">★</span>
-                  <span className="font-medium">{hotel.rating}</span>
+                  <span className="text-sm font-medium">{hotel.rating}</span>
                 </div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-xs text-muted-foreground line-through">₴{hotel.price}</span>
-                  <span className="text-xl font-bold" style={{ color: 'var(--color-accent, #FACE00)' }}>₴{hotel.premiumPrice}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground line-through">₴{hotel.price}</span>
+                  <span
+                    className="text-xl font-bold"
+                    style={{ color: 'var(--color-accent)' }}
+                  >
+                    ₴{hotel.premiumPrice}
+                  </span>
                   <span className="text-xs text-muted-foreground">/ніч</span>
-                  <span className="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                  <span
+                    className="ml-auto text-xs font-semibold px-2 py-0.5 rounded-full"
+                    style={{
+                      backgroundColor: 'var(--color-accent-light, #F7F4EA)',
+                      color: 'var(--color-accent)',
+                    }}
+                  >
                     -20% Premium
                   </span>
                 </div>
@@ -138,9 +182,15 @@ export function TravelTab() {
         </div>
       )}
 
-      {/* Map View */}
+      {/* Карта */}
       {viewMode === 'map' && (
-        <Card className="p-8 text-center border-[1px]" style={{ backgroundColor: 'var(--color-card-bg, #F7F7F9)' }}>
+        <Card
+          className="p-8 text-center border-[1px]"
+          style={{
+            backgroundColor: 'var(--color-card-bg, #F7F7F9)',
+            border: '1px solid rgba(229, 229, 229, 0.2)',
+          }}
+        >
           <Map className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
           <p className="text-muted-foreground">Перегляд карти буде доступний незабаром</p>
         </Card>

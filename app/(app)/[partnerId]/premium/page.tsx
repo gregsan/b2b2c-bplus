@@ -32,7 +32,8 @@ import {
   HeartPulse,
   LayoutGrid,
   Gift,
-  RefreshCw
+  RefreshCw,
+  ChevronRight
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -216,7 +217,7 @@ export default function PremiumPromoPage() {
                           partner.partnerOffers.length - 1 < 5 ? 'ї' : 'й'
                         }`
                       : partner.partnerOffers[0].offer
-                    : 'Знижки від партнерів',
+                    : 'Додаткові пропозиції',
                 ]
                 .filter(Boolean)
                 .map((feature, index) => (
@@ -445,24 +446,47 @@ export default function PremiumPromoPage() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Sparkles className="w-6 h-6" style={{ color: 'var(--color-accent)' }} />
-                <h2 className="text-xl font-bold">Пропозиції від брендів</h2>
+                <h2 className="text-xl font-bold">Додаткові пропозиції</h2>
               </div>
-              <Card 
+              <Card
                 className="p-4 border-[1px]"
-                style={{ 
+                style={{
                   backgroundColor: 'var(--color-card-bg, #F7F7F9)',
-                  border: '1px solid rgba(229, 229, 229, 0.2)'
+                  border: '1px solid rgba(229, 229, 229, 0.2)',
                 }}
               >
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <Crown className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Ексклюзивні знижки від партнерів</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <RefreshCw className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
-                    <span>Щомісячні оновлення пропозицій</span>
-                  </li>
+                <ul className="space-y-3 text-sm">
+                  {partner.partnerOffers && partner.partnerOffers.length > 0 ? (
+                    partner.partnerOffers.map((offer) => (
+                      <li key={offer.slug} className="flex items-start gap-2">
+                        <ChevronRight
+                          className="w-4 h-4 mt-0.5 flex-shrink-0"
+                          style={{ color: 'var(--color-accent)' }}
+                        />
+                        <div>
+                          <span className="font-medium text-foreground">{offer.name}</span>
+                          <span className="text-muted-foreground"> — {offer.offer}</span>
+                        </div>
+                      </li>
+                    ))
+                  ) : (
+                    <>
+                      <li className="flex items-start gap-2">
+                        <Crown
+                          className="w-4 h-4 mt-0.5 flex-shrink-0"
+                          style={{ color: 'var(--color-accent)' }}
+                        />
+                        <span className="text-muted-foreground">Ексклюзивні знижки від партнерів</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <RefreshCw
+                          className="w-4 h-4 mt-0.5 flex-shrink-0"
+                          style={{ color: 'var(--color-accent)' }}
+                        />
+                        <span className="text-muted-foreground">Щомісячні оновлення пропозицій</span>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </Card>
             </div>
