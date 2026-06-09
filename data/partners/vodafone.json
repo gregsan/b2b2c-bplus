@@ -3,7 +3,8 @@
   "type": "operator",
   "name": "Vodafone",
   "subscriptionName": "Vodafone Extra",
-  "subscriptionPrice": "₴149",
+  "subscriptionPrice": "₴849",
+  "subscriptionPeriod": "6 місяців",
   "colorScheme": "red",
   "benefits": [
     {

@@ -28,6 +28,7 @@ export interface PartnerConfig {
   subscriptionName: string
   subscriptionPrice: string
   colorScheme: string
+  subscriptionPeriod?: string
   benefits: PartnerBenefit[]
   services: PartnerService[]
   partnerOffers: PartnerOffer[]

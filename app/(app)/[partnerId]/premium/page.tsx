@@ -161,7 +161,7 @@ export default function PremiumPromoPage() {
                     className="text-sm font-medium"
                     style={{ color: 'var(--color-text-secondary, #6B6B6B)' }}
                   >
-                    /місяць
+                    / {partner.subscriptionPeriod ?? 'місяць'}
                   </span>
                 </div>
 
@@ -169,7 +169,7 @@ export default function PremiumPromoPage() {
                   className="text-xs"
                   style={{ color: 'var(--color-text-secondary, #6B6B6B)' }}
                 >
-                  Перший місяць — 1 грн, потім стандартна вартість тарифу
+                  потім стандартна місячна вартість тарифу
                 </p>
               </div>
             </div>
