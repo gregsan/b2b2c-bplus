@@ -30,6 +30,14 @@ export const colorSchemes: Record<string, ColorScheme> = {
     dark: '#E6F2FF',          // Глибокий синій
   },
 
+  // 🩵 Teal Group
+  teal: {
+    accent: '#00B5A0',        // Основний бірюзовий
+    accentHover: '#009688',   // Темніший при hover
+    accentLight: '#E6F8F6',   // Світлий бірюзовий фон
+    dark: '#E6F8F6',          // Світлий контрастний тон
+  },
+
   // 🔴 Red Group (Pravex, Procredit)
   red: {
     accent: '#E60000',        // Насичений червоний
@@ -61,7 +69,7 @@ export function applyColorScheme(scheme: ColorScheme) {
   root.style.setProperty('--color-accent-hover', scheme.accentHover)
   root.style.setProperty('--color-accent-light', scheme.accentLight)
   root.style.setProperty('--color-dark', scheme.dark)
-  
+
   // Base colors - same for all partners
   root.style.setProperty('--color-page-bg', '#FAFAFA')
   root.style.setProperty('--color-card-bg', '#FFFFFF')
